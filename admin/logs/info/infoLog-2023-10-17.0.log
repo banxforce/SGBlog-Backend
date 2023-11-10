@@ -1,0 +1,141 @@
+2023-10-17 21:22:57:885 [main] INFO  org.example.AdminApplication(StartupInfoLogger.java 51) -Starting AdminApplication using Java 17.0.8 with PID 420 (D:\javaFile\FirstBlog\admin\target\classes started by banxing in D:\javaFile\FirstBlog)
+2023-10-17 21:22:57:887 [main] INFO  org.example.AdminApplication(SpringApplication.java 634) -No active profile set, falling back to 1 default profile: "default"
+2023-10-17 21:22:58:967 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate(RepositoryConfigurationDelegate.java 291) -Multiple Spring Data modules found, entering strict repository configuration mode
+2023-10-17 21:22:58:970 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate(RepositoryConfigurationDelegate.java 138) -Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-10-17 21:22:59:009 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate(RepositoryConfigurationDelegate.java 208) -Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2023-10-17 21:22:59:846 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer(TomcatWebServer.java 108) -Tomcat initialized with port(s): 8989 (http)
+2023-10-17 21:22:59:857 [main] INFO  org.apache.coyote.http11.Http11NioProtocol(DirectJDKLog.java 173) -Initializing ProtocolHandler ["http-nio-0.0.0.0-8989"]
+2023-10-17 21:22:59:859 [main] INFO  org.apache.catalina.core.StandardService(DirectJDKLog.java 173) -Starting service [Tomcat]
+2023-10-17 21:22:59:860 [main] INFO  org.apache.catalina.core.StandardEngine(DirectJDKLog.java 173) -Starting Servlet engine: [Apache Tomcat/10.1.12]
+2023-10-17 21:22:59:981 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/](DirectJDKLog.java 173) -Initializing Spring embedded WebApplicationContext
+2023-10-17 21:22:59:982 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext(ServletWebServerApplicationContext.java 291) -Root WebApplicationContext: initialization completed in 2059 ms
+2023-10-17 21:23:00:646 [main] INFO  org.apache.catalina.core.StandardService(DirectJDKLog.java 173) -Stopping service [Tomcat]
+2023-10-17 21:23:00:659 [main] INFO  o.s.b.a.logging.ConditionEvaluationReportLogger(ConditionEvaluationReportLogger.java 82) -
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-10-17 21:24:28:478 [main] INFO  org.example.AdminApplication(StartupInfoLogger.java 51) -Starting AdminApplication using Java 17.0.8 with PID 5104 (D:\javaFile\FirstBlog\admin\target\classes started by banxing in D:\javaFile\FirstBlog)
+2023-10-17 21:24:28:480 [main] INFO  org.example.AdminApplication(SpringApplication.java 634) -No active profile set, falling back to 1 default profile: "default"
+2023-10-17 21:24:29:114 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate(RepositoryConfigurationDelegate.java 291) -Multiple Spring Data modules found, entering strict repository configuration mode
+2023-10-17 21:24:29:116 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate(RepositoryConfigurationDelegate.java 138) -Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-10-17 21:24:29:141 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate(RepositoryConfigurationDelegate.java 208) -Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
+2023-10-17 21:24:29:692 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer(TomcatWebServer.java 108) -Tomcat initialized with port(s): 8989 (http)
+2023-10-17 21:24:29:698 [main] INFO  org.apache.coyote.http11.Http11NioProtocol(DirectJDKLog.java 173) -Initializing ProtocolHandler ["http-nio-0.0.0.0-8989"]
+2023-10-17 21:24:29:700 [main] INFO  org.apache.catalina.core.StandardService(DirectJDKLog.java 173) -Starting service [Tomcat]
+2023-10-17 21:24:29:700 [main] INFO  org.apache.catalina.core.StandardEngine(DirectJDKLog.java 173) -Starting Servlet engine: [Apache Tomcat/10.1.12]
+2023-10-17 21:24:29:770 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/](DirectJDKLog.java 173) -Initializing Spring embedded WebApplicationContext
+2023-10-17 21:24:29:771 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext(ServletWebServerApplicationContext.java 291) -Root WebApplicationContext: initialization completed in 1249 ms
+2023-10-17 21:24:30:286 [main] INFO  org.apache.catalina.core.StandardService(DirectJDKLog.java 173) -Stopping service [Tomcat]
+2023-10-17 21:24:30:295 [main] INFO  o.s.b.a.logging.ConditionEvaluationReportLogger(ConditionEvaluationReportLogger.java 82) -
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-10-17 21:25:33:542 [main] INFO  org.example.AdminApplication(StartupInfoLogger.java 51) -Starting AdminApplication using Java 17.0.8 with PID 14528 (D:\javaFile\FirstBlog\admin\target\classes started by banxing in D:\javaFile\FirstBlog)
+2023-10-17 21:25:33:544 [main] INFO  org.example.AdminApplication(SpringApplication.java 634) -No active profile set, falling back to 1 default profile: "default"
+2023-10-17 21:25:34:152 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate(RepositoryConfigurationDelegate.java 291) -Multiple Spring Data modules found, entering strict repository configuration mode
+2023-10-17 21:25:34:154 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate(RepositoryConfigurationDelegate.java 138) -Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-10-17 21:25:34:183 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate(RepositoryConfigurationDelegate.java 208) -Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+2023-10-17 21:25:34:730 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer(TomcatWebServer.java 108) -Tomcat initialized with port(s): 8989 (http)
+2023-10-17 21:25:34:736 [main] INFO  org.apache.coyote.http11.Http11NioProtocol(DirectJDKLog.java 173) -Initializing ProtocolHandler ["http-nio-0.0.0.0-8989"]
+2023-10-17 21:25:34:737 [main] INFO  org.apache.catalina.core.StandardService(DirectJDKLog.java 173) -Starting service [Tomcat]
+2023-10-17 21:25:34:738 [main] INFO  org.apache.catalina.core.StandardEngine(DirectJDKLog.java 173) -Starting Servlet engine: [Apache Tomcat/10.1.12]
+2023-10-17 21:25:34:807 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/](DirectJDKLog.java 173) -Initializing Spring embedded WebApplicationContext
+2023-10-17 21:25:34:808 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext(ServletWebServerApplicationContext.java 291) -Root WebApplicationContext: initialization completed in 1231 ms
+2023-10-17 21:25:35:291 [main] INFO  org.apache.catalina.core.StandardService(DirectJDKLog.java 173) -Stopping service [Tomcat]
+2023-10-17 21:25:35:300 [main] INFO  o.s.b.a.logging.ConditionEvaluationReportLogger(ConditionEvaluationReportLogger.java 82) -
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-10-17 21:32:11:655 [main] INFO  org.example.AdminApplication(StartupInfoLogger.java 51) -Starting AdminApplication using Java 17.0.8 with PID 25796 (D:\javaFile\FirstBlog\admin\target\classes started by banxing in D:\javaFile\FirstBlog)
+2023-10-17 21:32:11:656 [main] INFO  org.example.AdminApplication(SpringApplication.java 634) -No active profile set, falling back to 1 default profile: "default"
+2023-10-17 21:32:12:172 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate(RepositoryConfigurationDelegate.java 291) -Multiple Spring Data modules found, entering strict repository configuration mode
+2023-10-17 21:32:12:174 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate(RepositoryConfigurationDelegate.java 138) -Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-10-17 21:32:12:201 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate(RepositoryConfigurationDelegate.java 208) -Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
+2023-10-17 21:32:12:666 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer(TomcatWebServer.java 108) -Tomcat initialized with port(s): 8989 (http)
+2023-10-17 21:32:12:671 [main] INFO  org.apache.coyote.http11.Http11NioProtocol(DirectJDKLog.java 173) -Initializing ProtocolHandler ["http-nio-0.0.0.0-8989"]
+2023-10-17 21:32:12:672 [main] INFO  org.apache.catalina.core.StandardService(DirectJDKLog.java 173) -Starting service [Tomcat]
+2023-10-17 21:32:12:673 [main] INFO  org.apache.catalina.core.StandardEngine(DirectJDKLog.java 173) -Starting Servlet engine: [Apache Tomcat/10.1.12]
+2023-10-17 21:32:12:734 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/](DirectJDKLog.java 173) -Initializing Spring embedded WebApplicationContext
+2023-10-17 21:32:12:734 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext(ServletWebServerApplicationContext.java 291) -Root WebApplicationContext: initialization completed in 1050 ms
+2023-10-17 21:32:13:538 [main] INFO  o.s.security.web.DefaultSecurityFilterChain(DefaultSecurityFilterChain.java 54) -Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@13f2d42c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1071ae7c, org.springframework.security.web.context.SecurityContextHolderFilter@28bc9749, org.springframework.security.web.header.HeaderWriterFilter@22368ddc, org.springframework.web.filter.CorsFilter@dd9de63, org.example.filter.JwtAuthenticationTokenFilter@57b1ec84, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3a116ca6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1123d461, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@52a75c12, org.springframework.security.web.session.SessionManagementFilter@56d5460f, org.springframework.security.web.access.ExceptionTranslationFilter@24842b8e, org.springframework.security.web.access.intercept.AuthorizationFilter@460b77d6]
+2023-10-17 21:32:14:211 [main] INFO  org.apache.coyote.http11.Http11NioProtocol(DirectJDKLog.java 173) -Starting ProtocolHandler ["http-nio-0.0.0.0-8989"]
+2023-10-17 21:32:14:225 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer(TomcatWebServer.java 220) -Tomcat started on port(s): 8989 (http) with context path ''
+2023-10-17 21:32:14:231 [main] INFO  org.example.AdminApplication(StartupInfoLogger.java 57) -Started AdminApplication in 2.901 seconds (process running for 3.252)
+2023-10-17 21:32:23:713 [http-nio-0.0.0.0-8989-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/](DirectJDKLog.java 173) -Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-17 21:32:23:713 [http-nio-0.0.0.0-8989-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet(FrameworkServlet.java 532) -Initializing Servlet 'dispatcherServlet'
+2023-10-17 21:32:23:714 [http-nio-0.0.0.0-8989-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet(FrameworkServlet.java 554) -Completed initialization in 1 ms
+2023-10-17 21:32:29:220 [http-nio-0.0.0.0-8989-exec-3] INFO  org.example.aspect.LogAspect(LogAspect.java 51) -=======Start=======
+2023-10-17 21:32:29:222 [http-nio-0.0.0.0-8989-exec-3] INFO  org.example.aspect.LogAspect(LogAspect.java 53) -URL            : http://localhost:8989/user/login
+2023-10-17 21:32:29:223 [http-nio-0.0.0.0-8989-exec-3] INFO  org.example.aspect.LogAspect(LogAspect.java 55) -BusinessName   : 登录
+2023-10-17 21:32:29:224 [http-nio-0.0.0.0-8989-exec-3] INFO  org.example.aspect.LogAspect(LogAspect.java 57) -HTTP Method    : POST
+2023-10-17 21:32:29:224 [http-nio-0.0.0.0-8989-exec-3] INFO  org.example.aspect.LogAspect(LogAspect.java 59) -Class Method   : org.example.controller.LoginController.login
+2023-10-17 21:32:29:224 [http-nio-0.0.0.0-8989-exec-3] INFO  org.example.aspect.LogAspect(LogAspect.java 61) -IP             : 127.0.0.1
+2023-10-17 21:32:29:231 [http-nio-0.0.0.0-8989-exec-3] INFO  org.example.aspect.LogAspect(LogAspect.java 63) -Request Args   : [{"password":"1234","userName":"sg"}]
+2023-10-17 21:32:29:401 [http-nio-0.0.0.0-8989-exec-3] INFO  com.zaxxer.hikari.HikariDataSource(HikariDataSource.java 110) -HikariPool-1 - Starting...
+2023-10-17 21:32:29:727 [http-nio-0.0.0.0-8989-exec-3] INFO  com.zaxxer.hikari.pool.HikariPool(HikariPool.java 565) -HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6a263eed
+2023-10-17 21:32:29:728 [http-nio-0.0.0.0-8989-exec-3] INFO  com.zaxxer.hikari.HikariDataSource(HikariDataSource.java 123) -HikariPool-1 - Start completed.
+2023-10-17 21:32:30:315 [http-nio-0.0.0.0-8989-exec-3] INFO  org.example.aspect.LogAspect(LogAspect.java 76) -Response       : {"code":200,"data":{"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiYngiLCJleHAiOjE2OTc2MzU5NDksImlhdCI6MTY5NzU0OTU0OSwianRpIjoiNzE3MDJiNmUtNDkwMi00YWRmLWEwNWEtMzZkMTIwOWQ1YThmIn0.k94Hm7P2QbYMSfjPiYS_jk0kWTIkPzKTl_1-g1PZ_Gk"},"msg":"操作成功"}
+2023-10-17 21:32:30:316 [http-nio-0.0.0.0-8989-exec-3] INFO  org.example.aspect.LogAspect(LogAspect.java 37) -=======End=======
+
+2023-10-17 21:34:10:749 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource(HikariDataSource.java 350) -HikariPool-1 - Shutdown initiated...
+2023-10-17 21:34:10:753 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource(HikariDataSource.java 352) -HikariPool-1 - Shutdown completed.
+2023-10-17 21:34:14:613 [main] INFO  org.example.AdminApplication(StartupInfoLogger.java 51) -Starting AdminApplication using Java 17.0.8 with PID 24712 (D:\javaFile\FirstBlog\admin\target\classes started by banxing in D:\javaFile\FirstBlog)
+2023-10-17 21:34:14:615 [main] INFO  org.example.AdminApplication(SpringApplication.java 634) -No active profile set, falling back to 1 default profile: "default"
+2023-10-17 21:34:15:169 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate(RepositoryConfigurationDelegate.java 291) -Multiple Spring Data modules found, entering strict repository configuration mode
+2023-10-17 21:34:15:170 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate(RepositoryConfigurationDelegate.java 138) -Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-10-17 21:34:15:198 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate(RepositoryConfigurationDelegate.java 208) -Finished Spring Data repository scanning in 19 ms. Found 0 Redis repository interfaces.
+2023-10-17 21:34:15:708 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer(TomcatWebServer.java 108) -Tomcat initialized with port(s): 8989 (http)
+2023-10-17 21:34:15:715 [main] INFO  org.apache.coyote.http11.Http11NioProtocol(DirectJDKLog.java 173) -Initializing ProtocolHandler ["http-nio-0.0.0.0-8989"]
+2023-10-17 21:34:15:716 [main] INFO  org.apache.catalina.core.StandardService(DirectJDKLog.java 173) -Starting service [Tomcat]
+2023-10-17 21:34:15:718 [main] INFO  org.apache.catalina.core.StandardEngine(DirectJDKLog.java 173) -Starting Servlet engine: [Apache Tomcat/10.1.12]
+2023-10-17 21:34:15:780 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/](DirectJDKLog.java 173) -Initializing Spring embedded WebApplicationContext
+2023-10-17 21:34:15:781 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext(ServletWebServerApplicationContext.java 291) -Root WebApplicationContext: initialization completed in 1137 ms
+2023-10-17 21:34:16:575 [main] INFO  o.s.security.web.DefaultSecurityFilterChain(DefaultSecurityFilterChain.java 54) -Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6cb662e8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@13f2d42c, org.springframework.security.web.context.SecurityContextHolderFilter@4a0c512b, org.springframework.security.web.header.HeaderWriterFilter@146add7b, org.springframework.web.filter.CorsFilter@1071ae7c, org.example.filter.JwtAuthenticationTokenFilter@280ecc33, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@54a5496f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2066e897, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@dd9de63, org.springframework.security.web.session.SessionManagementFilter@3dbbed3e, org.springframework.security.web.access.ExceptionTranslationFilter@69372c1e, org.springframework.security.web.access.intercept.AuthorizationFilter@11c25846]
+2023-10-17 21:34:17:212 [main] INFO  org.apache.coyote.http11.Http11NioProtocol(DirectJDKLog.java 173) -Starting ProtocolHandler ["http-nio-0.0.0.0-8989"]
+2023-10-17 21:34:17:227 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer(TomcatWebServer.java 220) -Tomcat started on port(s): 8989 (http) with context path ''
+2023-10-17 21:34:17:235 [main] INFO  org.example.AdminApplication(StartupInfoLogger.java 57) -Started AdminApplication in 2.963 seconds (process running for 3.338)
+2023-10-17 21:34:30:735 [http-nio-0.0.0.0-8989-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/](DirectJDKLog.java 173) -Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-17 21:34:30:735 [http-nio-0.0.0.0-8989-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet(FrameworkServlet.java 532) -Initializing Servlet 'dispatcherServlet'
+2023-10-17 21:34:30:736 [http-nio-0.0.0.0-8989-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet(FrameworkServlet.java 554) -Completed initialization in 1 ms
+2023-10-17 21:34:30:846 [http-nio-0.0.0.0-8989-exec-1] INFO  org.example.aspect.LogAspect(LogAspect.java 51) -=======Start=======
+2023-10-17 21:34:30:847 [http-nio-0.0.0.0-8989-exec-1] INFO  org.example.aspect.LogAspect(LogAspect.java 53) -URL            : http://localhost:8989/user/login
+2023-10-17 21:34:30:849 [http-nio-0.0.0.0-8989-exec-1] INFO  org.example.aspect.LogAspect(LogAspect.java 55) -BusinessName   : 登录
+2023-10-17 21:34:30:849 [http-nio-0.0.0.0-8989-exec-1] INFO  org.example.aspect.LogAspect(LogAspect.java 57) -HTTP Method    : POST
+2023-10-17 21:34:30:849 [http-nio-0.0.0.0-8989-exec-1] INFO  org.example.aspect.LogAspect(LogAspect.java 59) -Class Method   : org.example.controller.LoginController.login
+2023-10-17 21:34:30:849 [http-nio-0.0.0.0-8989-exec-1] INFO  org.example.aspect.LogAspect(LogAspect.java 61) -IP             : 127.0.0.1
+2023-10-17 21:34:30:860 [http-nio-0.0.0.0-8989-exec-1] INFO  org.example.aspect.LogAspect(LogAspect.java 63) -Request Args   : [{"password":"1234","userName":"sg"}]
+2023-10-17 21:34:30:978 [http-nio-0.0.0.0-8989-exec-1] INFO  com.zaxxer.hikari.HikariDataSource(HikariDataSource.java 110) -HikariPool-1 - Starting...
+2023-10-17 21:34:31:300 [http-nio-0.0.0.0-8989-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool(HikariPool.java 565) -HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5de9083f
+2023-10-17 21:34:31:301 [http-nio-0.0.0.0-8989-exec-1] INFO  com.zaxxer.hikari.HikariDataSource(HikariDataSource.java 123) -HikariPool-1 - Start completed.
+2023-10-17 21:34:31:712 [http-nio-0.0.0.0-8989-exec-1] INFO  org.example.aspect.LogAspect(LogAspect.java 76) -Response       : {"code":200,"data":{"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiYngiLCJleHAiOjE2OTc2MzYwNzEsImlhdCI6MTY5NzU0OTY3MSwianRpIjoiNzY5OGJhMzItMDI3OC00YTM5LWE3NjgtMTg5NzY4YzQ1Mzc3In0.tnv1xUu6D8nZ7jPXS782Z_1_3-dCcCyj0gFp5_0YIr4"},"msg":"操作成功"}
+2023-10-17 21:34:31:712 [http-nio-0.0.0.0-8989-exec-1] INFO  org.example.aspect.LogAspect(LogAspect.java 37) -=======End=======
+
+2023-10-17 21:40:31:100 [http-nio-0.0.0.0-8989-exec-5] INFO  org.example.aspect.LogAspect(LogAspect.java 51) -=======Start=======
+2023-10-17 21:40:31:100 [http-nio-0.0.0.0-8989-exec-5] INFO  org.example.aspect.LogAspect(LogAspect.java 53) -URL            : http://localhost:8989/getInfo
+2023-10-17 21:40:31:100 [http-nio-0.0.0.0-8989-exec-5] INFO  org.example.aspect.LogAspect(LogAspect.java 55) -BusinessName   : 获取后台用户信息
+2023-10-17 21:40:31:100 [http-nio-0.0.0.0-8989-exec-5] INFO  org.example.aspect.LogAspect(LogAspect.java 57) -HTTP Method    : GET
+2023-10-17 21:40:31:100 [http-nio-0.0.0.0-8989-exec-5] INFO  org.example.aspect.LogAspect(LogAspect.java 59) -Class Method   : org.example.controller.LoginController.getInfo
+2023-10-17 21:40:31:101 [http-nio-0.0.0.0-8989-exec-5] INFO  org.example.aspect.LogAspect(LogAspect.java 61) -IP             : 127.0.0.1
+2023-10-17 21:40:31:101 [http-nio-0.0.0.0-8989-exec-5] INFO  org.example.aspect.LogAspect(LogAspect.java 63) -Request Args   : []
+2023-10-17 21:40:31:162 [http-nio-0.0.0.0-8989-exec-5] INFO  org.example.aspect.LogAspect(LogAspect.java 76) -Response       : {"code":200,"data":{"permissions":["system:user:list","system:role:list","system:menu:list","system:user:query","system:user:add","system:user:edit","system:user:remove","system:user:export","system:user:import","system:user:resetPwd","system:role:query","system:role:add","system:role:edit","system:role:remove","system:role:export","system:menu:query","system:menu:add","system:menu:edit","system:menu:remove","content:category:list","content:article:list","content:tag:index","content:link:list","content:article:writer","content:link:add","content:link:edit","content:link:remove","content:link:query","content:category:export"],"roles":["admin"],"user":{"avatar":"http://s21taor9o.bkt.clouddn.com/2023/10/08/a75e7723e07c475a8163ce1b473b3388.jpg","email":"23412332@qq.com","id":1,"nickName":"rock","sex":"1"}},"msg":"操作成功"}
+2023-10-17 21:40:31:162 [http-nio-0.0.0.0-8989-exec-5] INFO  org.example.aspect.LogAspect(LogAspect.java 37) -=======End=======
+
+2023-10-17 21:42:41:162 [lettuce-nioEventLoop-4-1] INFO  io.lettuce.core.protocol.CommandHandler(AbstractInternalLogger.java 217) -null Unexpected exception during request: java.net.SocketException: Connection reset
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:394)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:426)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-10-17 21:42:41:266 [lettuce-eventExecutorLoop-1-3] INFO  io.lettuce.core.protocol.ConnectionWatchdog(AbstractInternalLogger.java 171) -Reconnecting, last destination was localhost/127.0.0.1:6379
+2023-10-17 21:42:50:374 [lettuce-eventExecutorLoop-1-15] INFO  io.lettuce.core.protocol.ConnectionWatchdog(AbstractInternalLogger.java 171) -Reconnecting, last destination was localhost/<unresolved>:6379
+2023-10-17 21:42:58:663 [lettuce-eventExecutorLoop-1-16] INFO  io.lettuce.core.protocol.ConnectionWatchdog(AbstractInternalLogger.java 171) -Reconnecting, last destination was localhost/<unresolved>:6379
+2023-10-17 21:43:15:066 [lettuce-eventExecutorLoop-1-17] INFO  io.lettuce.core.protocol.ConnectionWatchdog(AbstractInternalLogger.java 171) -Reconnecting, last destination was localhost/<unresolved>:6379
+2023-10-17 21:43:20:678 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource(HikariDataSource.java 350) -HikariPool-1 - Shutdown initiated...
+2023-10-17 21:43:20:680 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource(HikariDataSource.java 352) -HikariPool-1 - Shutdown completed.

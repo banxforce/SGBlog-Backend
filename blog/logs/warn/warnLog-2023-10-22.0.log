@@ -1,0 +1,2 @@
+2023-10-22 15:47:54:649 [main] WARN  c.b.mybatisplus.core.injector.DefaultSqlInjector(DefaultSqlInjector.java 56) -class org.example.domain.entity.UserRole ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+2023-10-22 15:48:39:434 [http-nio-0.0.0.0-7777-exec-4] WARN  c.b.m.core.toolkit.support.ReflectLambdaMeta(ReflectLambdaMeta.java 41) -Unable to make field private final java.lang.Class java.lang.invoke.SerializedLambda.capturingClass accessible: module java.base does not "opens java.lang.invoke" to unnamed module @2638011

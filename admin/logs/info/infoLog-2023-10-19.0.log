@@ -1,0 +1,132 @@
+2023-10-19 15:29:48:788 [main] INFO  org.example.AdminApplication(StartupInfoLogger.java 51) -Starting AdminApplication using Java 17.0.8 with PID 25880 (D:\javaFile\FirstBlog\admin\target\classes started by banxing in D:\javaFile\FirstBlog)
+2023-10-19 15:29:48:791 [main] INFO  org.example.AdminApplication(SpringApplication.java 634) -No active profile set, falling back to 1 default profile: "default"
+2023-10-19 15:29:49:546 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate(RepositoryConfigurationDelegate.java 291) -Multiple Spring Data modules found, entering strict repository configuration mode
+2023-10-19 15:29:49:549 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate(RepositoryConfigurationDelegate.java 138) -Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-10-19 15:29:49:597 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate(RepositoryConfigurationDelegate.java 208) -Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2023-10-19 15:29:50:256 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer(TomcatWebServer.java 108) -Tomcat initialized with port(s): 8989 (http)
+2023-10-19 15:29:50:264 [main] INFO  org.apache.coyote.http11.Http11NioProtocol(DirectJDKLog.java 173) -Initializing ProtocolHandler ["http-nio-0.0.0.0-8989"]
+2023-10-19 15:29:50:265 [main] INFO  org.apache.catalina.core.StandardService(DirectJDKLog.java 173) -Starting service [Tomcat]
+2023-10-19 15:29:50:266 [main] INFO  org.apache.catalina.core.StandardEngine(DirectJDKLog.java 173) -Starting Servlet engine: [Apache Tomcat/10.1.12]
+2023-10-19 15:29:50:343 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/](DirectJDKLog.java 173) -Initializing Spring embedded WebApplicationContext
+2023-10-19 15:29:50:343 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext(ServletWebServerApplicationContext.java 291) -Root WebApplicationContext: initialization completed in 1506 ms
+2023-10-19 15:29:51:827 [main] INFO  o.s.security.web.DefaultSecurityFilterChain(DefaultSecurityFilterChain.java 54) -Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@297dff3a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@30437e9c, org.springframework.security.web.context.SecurityContextHolderFilter@21ba0d33, org.springframework.security.web.header.HeaderWriterFilter@344a065a, org.example.filter.JwtAuthenticationTokenFilter@1dca62c2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4fd63c43, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@23d23d98, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2e057637, org.springframework.security.web.session.SessionManagementFilter@78ea700f, org.springframework.security.web.access.ExceptionTranslationFilter@6719f206, org.springframework.security.web.access.intercept.AuthorizationFilter@41abee65]
+2023-10-19 15:29:52:108 [main] INFO  org.apache.coyote.http11.Http11NioProtocol(DirectJDKLog.java 173) -Starting ProtocolHandler ["http-nio-0.0.0.0-8989"]
+2023-10-19 15:29:52:124 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer(TomcatWebServer.java 220) -Tomcat started on port(s): 8989 (http) with context path ''
+2023-10-19 15:29:52:131 [main] INFO  org.example.AdminApplication(StartupInfoLogger.java 57) -Started AdminApplication in 3.822 seconds (process running for 4.251)
+2023-10-19 15:31:26:736 [http-nio-0.0.0.0-8989-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/](DirectJDKLog.java 173) -Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-19 15:31:26:736 [http-nio-0.0.0.0-8989-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet(FrameworkServlet.java 532) -Initializing Servlet 'dispatcherServlet'
+2023-10-19 15:31:26:737 [http-nio-0.0.0.0-8989-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet(FrameworkServlet.java 554) -Completed initialization in 1 ms
+2023-10-19 15:31:26:856 [http-nio-0.0.0.0-8989-exec-1] INFO  org.example.aspect.LogAspect(LogAspect.java 51) -=======Start=======
+2023-10-19 15:31:26:856 [http-nio-0.0.0.0-8989-exec-1] INFO  org.example.aspect.LogAspect(LogAspect.java 53) -URL            : http://localhost:8989/user/login
+2023-10-19 15:31:26:858 [http-nio-0.0.0.0-8989-exec-1] INFO  org.example.aspect.LogAspect(LogAspect.java 55) -BusinessName   : 登录
+2023-10-19 15:31:26:858 [http-nio-0.0.0.0-8989-exec-1] INFO  org.example.aspect.LogAspect(LogAspect.java 57) -HTTP Method    : POST
+2023-10-19 15:31:26:858 [http-nio-0.0.0.0-8989-exec-1] INFO  org.example.aspect.LogAspect(LogAspect.java 59) -Class Method   : org.example.controller.LoginController.login
+2023-10-19 15:31:26:858 [http-nio-0.0.0.0-8989-exec-1] INFO  org.example.aspect.LogAspect(LogAspect.java 61) -IP             : 127.0.0.1
+2023-10-19 15:31:26:870 [http-nio-0.0.0.0-8989-exec-1] INFO  org.example.aspect.LogAspect(LogAspect.java 63) -Request Args   : [{"password":"1234","userName":"sg"}]
+2023-10-19 15:31:26:997 [http-nio-0.0.0.0-8989-exec-1] INFO  com.zaxxer.hikari.HikariDataSource(HikariDataSource.java 110) -HikariPool-1 - Starting...
+2023-10-19 15:31:27:263 [http-nio-0.0.0.0-8989-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool(HikariPool.java 565) -HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3877ed81
+2023-10-19 15:31:27:264 [http-nio-0.0.0.0-8989-exec-1] INFO  com.zaxxer.hikari.HikariDataSource(HikariDataSource.java 123) -HikariPool-1 - Start completed.
+2023-10-19 15:31:27:665 [http-nio-0.0.0.0-8989-exec-1] INFO  org.example.aspect.LogAspect(LogAspect.java 76) -Response       : {"code":200,"data":{"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiYngiLCJleHAiOjE2OTc3ODcwODcsImlhdCI6MTY5NzcwMDY4NywianRpIjoiNzZiYmM5YmYtZTRlYi00MGRlLTg4NDItYzU5N2JiN2Y5ZjMzIn0.yhfLemsrR9QFUNJhtkt46s9sEEl7gQkPU0knteqxJeo"},"msg":"操作成功"}
+2023-10-19 15:31:27:665 [http-nio-0.0.0.0-8989-exec-1] INFO  org.example.aspect.LogAspect(LogAspect.java 37) -=======End=======
+
+2023-10-19 15:31:48:692 [http-nio-0.0.0.0-8989-exec-3] INFO  org.example.aspect.LogAspect(LogAspect.java 51) -=======Start=======
+2023-10-19 15:31:48:692 [http-nio-0.0.0.0-8989-exec-3] INFO  org.example.aspect.LogAspect(LogAspect.java 53) -URL            : http://localhost:8989/getInfo
+2023-10-19 15:31:48:692 [http-nio-0.0.0.0-8989-exec-3] INFO  org.example.aspect.LogAspect(LogAspect.java 55) -BusinessName   : 获取后台用户信息
+2023-10-19 15:31:48:693 [http-nio-0.0.0.0-8989-exec-3] INFO  org.example.aspect.LogAspect(LogAspect.java 57) -HTTP Method    : GET
+2023-10-19 15:31:48:693 [http-nio-0.0.0.0-8989-exec-3] INFO  org.example.aspect.LogAspect(LogAspect.java 59) -Class Method   : org.example.controller.LoginController.getInfo
+2023-10-19 15:31:48:693 [http-nio-0.0.0.0-8989-exec-3] INFO  org.example.aspect.LogAspect(LogAspect.java 61) -IP             : 127.0.0.1
+2023-10-19 15:31:48:693 [http-nio-0.0.0.0-8989-exec-3] INFO  org.example.aspect.LogAspect(LogAspect.java 63) -Request Args   : []
+2023-10-19 15:31:48:742 [http-nio-0.0.0.0-8989-exec-3] INFO  org.example.aspect.LogAspect(LogAspect.java 76) -Response       : {"code":200,"data":{"permissions":["system:user:list","system:role:list","system:menu:list","system:user:query","system:user:add","system:user:edit","system:user:remove","system:user:export","system:user:import","system:user:resetPwd","system:role:query","system:role:add","system:role:edit","system:role:remove","system:role:export","system:menu:query","system:menu:add","system:menu:edit","system:menu:remove","content:category:list","content:article:list","content:tag:index","content:link:list","content:article:writer","content:link:add","content:link:edit","content:link:remove","content:link:query","content:category:export"],"roles":["admin"],"user":{"avatar":"http://s21taor9o.bkt.clouddn.com/2023/10/08/a75e7723e07c475a8163ce1b473b3388.jpg","email":"23412332@qq.com","id":1,"nickName":"rock","sex":"1"}},"msg":"操作成功"}
+2023-10-19 15:31:48:742 [http-nio-0.0.0.0-8989-exec-3] INFO  org.example.aspect.LogAspect(LogAspect.java 37) -=======End=======
+
+2023-10-19 15:32:15:180 [http-nio-0.0.0.0-8989-exec-4] INFO  org.example.aspect.LogAspect(LogAspect.java 51) -=======Start=======
+2023-10-19 15:32:15:181 [http-nio-0.0.0.0-8989-exec-4] INFO  org.example.aspect.LogAspect(LogAspect.java 53) -URL            : http://localhost:8989/getRouters
+2023-10-19 15:32:15:181 [http-nio-0.0.0.0-8989-exec-4] INFO  org.example.aspect.LogAspect(LogAspect.java 55) -BusinessName   : 为前端动态路由提供数据
+2023-10-19 15:32:15:181 [http-nio-0.0.0.0-8989-exec-4] INFO  org.example.aspect.LogAspect(LogAspect.java 57) -HTTP Method    : GET
+2023-10-19 15:32:15:181 [http-nio-0.0.0.0-8989-exec-4] INFO  org.example.aspect.LogAspect(LogAspect.java 59) -Class Method   : org.example.controller.LoginController.getRouters
+2023-10-19 15:32:15:181 [http-nio-0.0.0.0-8989-exec-4] INFO  org.example.aspect.LogAspect(LogAspect.java 61) -IP             : 127.0.0.1
+2023-10-19 15:32:15:181 [http-nio-0.0.0.0-8989-exec-4] INFO  org.example.aspect.LogAspect(LogAspect.java 63) -Request Args   : []
+2023-10-19 15:32:15:224 [http-nio-0.0.0.0-8989-exec-4] INFO  org.example.aspect.LogAspect(LogAspect.java 76) -Response       : {"code":200,"data":{"menus":[{"children":[],"component":"content/article/write/index","createTime":"2022-01-08 03:39:58","icon":"build","id":2023,"isFrame":1,"menuName":"写博文","menuType":"C","parentId":0,"path":"write","perms":"content:article:writer","status":"0","visible":"0"},{"children":[{"children":[],"component":"system/user/index","createTime":"2021-11-12 10:46:19","icon":"user","id":100,"isFrame":1,"menuName":"用户管理","menuType":"C","parentId":1,"path":"user","perms":"system:user:list","status":"0","visible":"0"},{"children":[],"component":"system/role/index","createTime":"2021-11-12 10:46:19","icon":"peoples","id":101,"isFrame":1,"menuName":"角色管理","menuType":"C","parentId":1,"path":"role","perms":"system:role:list","status":"0","visible":"0"},{"children":[],"component":"system/menu/index","createTime":"2021-11-12 10:46:19","icon":"tree-table","id":102,"isFrame":1,"menuName":"菜单管理","menuType":"C","parentId":1,"path":"menu","perms":"system:menu:list","status":"0","visible":"0"}],"createTime":"2021-11-12 10:46:19","icon":"system","id":1,"isFrame":1,"menuName":"系统管理","menuType":"M","parentId":0,"path":"system","perms":"","status":"0","visible":"0"},{"children":[{"children":[],"component":"content/article/index","createTime":"2022-01-08 02:53:10","icon":"build","id":2019,"isFrame":1,"menuName":"文章管理","menuType":"C","parentId":2017,"path":"article","perms":"content:article:list","status":"0","visible":"0"},{"children":[],"component":"content/category/index","createTime":"2022-01-08 02:51:45","icon":"example","id":2018,"isFrame":1,"menuName":"分类管理","menuType":"C","parentId":2017,"path":"category","perms":"content:category:list","status":"0","visible":"0"},{"children":[],"component":"content/link/index","createTime":"2022-01-08 02:56:50","icon":"404","id":2022,"isFrame":1,"menuName":"友链管理","menuType":"C","parentId":2017,"path":"link","perms":"content:link:list","status":"0","visible":"0"},{"children":[],"component":"content/tag/index","createTime":"2022-01-08 02:55:37","icon":"button","id":2021,"isFrame":1,"menuName":"标签管理","menuType":"C","parentId":2017,"path":"tag","perms":"content:tag:index","status":"0","visible":"0"}],"createTime":"2022-01-08 02:44:38","icon":"table","id":2017,"isFrame":1,"menuName":"内容管理","menuType":"M","parentId":0,"path":"content","perms":"","status":"0","visible":"0"}]},"msg":"操作成功"}
+2023-10-19 15:32:15:225 [http-nio-0.0.0.0-8989-exec-4] INFO  org.example.aspect.LogAspect(LogAspect.java 37) -=======End=======
+
+2023-10-19 15:32:32:636 [http-nio-0.0.0.0-8989-exec-7] INFO  org.example.aspect.LogAspect(LogAspect.java 51) -=======Start=======
+2023-10-19 15:32:32:637 [http-nio-0.0.0.0-8989-exec-7] INFO  org.example.aspect.LogAspect(LogAspect.java 53) -URL            : http://localhost:8989/user/login
+2023-10-19 15:32:32:637 [http-nio-0.0.0.0-8989-exec-7] INFO  org.example.aspect.LogAspect(LogAspect.java 55) -BusinessName   : 登录
+2023-10-19 15:32:32:637 [http-nio-0.0.0.0-8989-exec-7] INFO  org.example.aspect.LogAspect(LogAspect.java 57) -HTTP Method    : POST
+2023-10-19 15:32:32:638 [http-nio-0.0.0.0-8989-exec-7] INFO  org.example.aspect.LogAspect(LogAspect.java 59) -Class Method   : org.example.controller.LoginController.login
+2023-10-19 15:32:32:638 [http-nio-0.0.0.0-8989-exec-7] INFO  org.example.aspect.LogAspect(LogAspect.java 61) -IP             : 127.0.0.1
+2023-10-19 15:32:32:638 [http-nio-0.0.0.0-8989-exec-7] INFO  org.example.aspect.LogAspect(LogAspect.java 63) -Request Args   : [{"password":"1234","userName":"sangeng"}]
+2023-10-19 15:32:32:737 [http-nio-0.0.0.0-8989-exec-7] INFO  org.example.aspect.LogAspect(LogAspect.java 76) -Response       : {"code":200,"data":{"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2IiwiaXNzIjoiYngiLCJleHAiOjE2OTc3ODcxNTIsImlhdCI6MTY5NzcwMDc1MiwianRpIjoiZTc5NjhmMDgtZTlhNS00MTI5LTlmNDUtZGJlYTU2ZWRiMWFmIn0.jgMTu-L_fyCwcxmEDJQR3qJeT65ZrOJrZ7ek22MNLXo"},"msg":"操作成功"}
+2023-10-19 15:32:32:737 [http-nio-0.0.0.0-8989-exec-7] INFO  org.example.aspect.LogAspect(LogAspect.java 37) -=======End=======
+
+2023-10-19 15:32:41:110 [http-nio-0.0.0.0-8989-exec-9] INFO  org.example.aspect.LogAspect(LogAspect.java 51) -=======Start=======
+2023-10-19 15:32:41:111 [http-nio-0.0.0.0-8989-exec-9] INFO  org.example.aspect.LogAspect(LogAspect.java 53) -URL            : http://localhost:8989/getRouters
+2023-10-19 15:32:41:111 [http-nio-0.0.0.0-8989-exec-9] INFO  org.example.aspect.LogAspect(LogAspect.java 55) -BusinessName   : 为前端动态路由提供数据
+2023-10-19 15:32:41:111 [http-nio-0.0.0.0-8989-exec-9] INFO  org.example.aspect.LogAspect(LogAspect.java 57) -HTTP Method    : GET
+2023-10-19 15:32:41:111 [http-nio-0.0.0.0-8989-exec-9] INFO  org.example.aspect.LogAspect(LogAspect.java 59) -Class Method   : org.example.controller.LoginController.getRouters
+2023-10-19 15:32:41:111 [http-nio-0.0.0.0-8989-exec-9] INFO  org.example.aspect.LogAspect(LogAspect.java 61) -IP             : 127.0.0.1
+2023-10-19 15:32:41:111 [http-nio-0.0.0.0-8989-exec-9] INFO  org.example.aspect.LogAspect(LogAspect.java 63) -Request Args   : []
+2023-10-19 15:32:41:142 [http-nio-0.0.0.0-8989-exec-9] INFO  org.example.aspect.LogAspect(LogAspect.java 76) -Response       : {"code":200,"data":{"menus":[{"children":[{"children":[],"component":"content/link/index","createTime":"2022-01-08 02:56:50","icon":"404","id":2022,"isFrame":1,"menuName":"友链管理","menuType":"C","parentId":2017,"path":"link","perms":"content:link:list","status":"0","visible":"0"}],"createTime":"2022-01-08 02:44:38","icon":"table","id":2017,"isFrame":1,"menuName":"内容管理","menuType":"M","parentId":0,"path":"content","perms":"","status":"0","visible":"0"}]},"msg":"操作成功"}
+2023-10-19 15:32:41:143 [http-nio-0.0.0.0-8989-exec-9] INFO  org.example.aspect.LogAspect(LogAspect.java 37) -=======End=======
+
+2023-10-19 15:32:57:986 [http-nio-0.0.0.0-8989-exec-1] INFO  org.example.aspect.LogAspect(LogAspect.java 51) -=======Start=======
+2023-10-19 15:32:57:987 [http-nio-0.0.0.0-8989-exec-1] INFO  org.example.aspect.LogAspect(LogAspect.java 53) -URL            : http://localhost:8989/user/login
+2023-10-19 15:32:57:987 [http-nio-0.0.0.0-8989-exec-1] INFO  org.example.aspect.LogAspect(LogAspect.java 55) -BusinessName   : 登录
+2023-10-19 15:32:57:987 [http-nio-0.0.0.0-8989-exec-1] INFO  org.example.aspect.LogAspect(LogAspect.java 57) -HTTP Method    : POST
+2023-10-19 15:32:57:987 [http-nio-0.0.0.0-8989-exec-1] INFO  org.example.aspect.LogAspect(LogAspect.java 59) -Class Method   : org.example.controller.LoginController.login
+2023-10-19 15:32:57:987 [http-nio-0.0.0.0-8989-exec-1] INFO  org.example.aspect.LogAspect(LogAspect.java 61) -IP             : 127.0.0.1
+2023-10-19 15:32:57:987 [http-nio-0.0.0.0-8989-exec-1] INFO  org.example.aspect.LogAspect(LogAspect.java 63) -Request Args   : [{"password":"1234","userName":"sangeng1"}]
+2023-10-19 15:32:58:094 [http-nio-0.0.0.0-8989-exec-1] INFO  org.example.aspect.LogAspect(LogAspect.java 37) -=======End=======
+
+2023-10-19 15:55:46:513 [lettuce-nioEventLoop-4-1] INFO  io.lettuce.core.protocol.CommandHandler(AbstractInternalLogger.java 217) -null Unexpected exception during request: java.net.SocketException: Connection reset
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:394)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:426)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-10-19 15:55:46:539 [lettuce-eventExecutorLoop-1-6] INFO  io.lettuce.core.protocol.ConnectionWatchdog(AbstractInternalLogger.java 171) -Reconnecting, last destination was localhost/127.0.0.1:6379
+2023-10-19 15:55:55:639 [lettuce-eventExecutorLoop-1-18] INFO  io.lettuce.core.protocol.ConnectionWatchdog(AbstractInternalLogger.java 171) -Reconnecting, last destination was localhost/<unresolved>:6379
+2023-10-19 15:56:03:838 [lettuce-eventExecutorLoop-1-19] INFO  io.lettuce.core.protocol.ConnectionWatchdog(AbstractInternalLogger.java 171) -Reconnecting, last destination was localhost/<unresolved>:6379
+2023-10-19 15:56:20:243 [lettuce-eventExecutorLoop-1-20] INFO  io.lettuce.core.protocol.ConnectionWatchdog(AbstractInternalLogger.java 171) -Reconnecting, last destination was localhost/<unresolved>:6379
+2023-10-19 15:56:50:348 [lettuce-eventExecutorLoop-1-12] INFO  io.lettuce.core.protocol.ConnectionWatchdog(AbstractInternalLogger.java 171) -Reconnecting, last destination was localhost/<unresolved>:6379
+2023-10-19 15:57:20:441 [lettuce-eventExecutorLoop-1-17] INFO  io.lettuce.core.protocol.ConnectionWatchdog(AbstractInternalLogger.java 171) -Reconnecting, last destination was localhost/<unresolved>:6379
+2023-10-19 15:57:50:538 [lettuce-eventExecutorLoop-1-19] INFO  io.lettuce.core.protocol.ConnectionWatchdog(AbstractInternalLogger.java 171) -Reconnecting, last destination was localhost/<unresolved>:6379
+2023-10-19 15:58:20:637 [lettuce-eventExecutorLoop-1-1] INFO  io.lettuce.core.protocol.ConnectionWatchdog(AbstractInternalLogger.java 171) -Reconnecting, last destination was localhost/<unresolved>:6379
+2023-10-19 15:58:50:744 [lettuce-eventExecutorLoop-1-3] INFO  io.lettuce.core.protocol.ConnectionWatchdog(AbstractInternalLogger.java 171) -Reconnecting, last destination was localhost/<unresolved>:6379
+2023-10-19 15:59:20:837 [lettuce-eventExecutorLoop-1-5] INFO  io.lettuce.core.protocol.ConnectionWatchdog(AbstractInternalLogger.java 171) -Reconnecting, last destination was localhost/<unresolved>:6379
+2023-10-19 15:59:50:938 [lettuce-eventExecutorLoop-1-7] INFO  io.lettuce.core.protocol.ConnectionWatchdog(AbstractInternalLogger.java 171) -Reconnecting, last destination was localhost/<unresolved>:6379
+2023-10-19 16:00:21:039 [lettuce-eventExecutorLoop-1-9] INFO  io.lettuce.core.protocol.ConnectionWatchdog(AbstractInternalLogger.java 171) -Reconnecting, last destination was localhost/<unresolved>:6379
+2023-10-19 16:00:51:137 [lettuce-eventExecutorLoop-1-11] INFO  io.lettuce.core.protocol.ConnectionWatchdog(AbstractInternalLogger.java 171) -Reconnecting, last destination was localhost/<unresolved>:6379
+2023-10-19 16:01:21:238 [lettuce-eventExecutorLoop-1-13] INFO  io.lettuce.core.protocol.ConnectionWatchdog(AbstractInternalLogger.java 171) -Reconnecting, last destination was localhost/<unresolved>:6379
+2023-10-19 16:01:51:337 [lettuce-eventExecutorLoop-1-15] INFO  io.lettuce.core.protocol.ConnectionWatchdog(AbstractInternalLogger.java 171) -Reconnecting, last destination was localhost/<unresolved>:6379
+2023-10-19 16:02:21:438 [lettuce-eventExecutorLoop-1-17] INFO  io.lettuce.core.protocol.ConnectionWatchdog(AbstractInternalLogger.java 171) -Reconnecting, last destination was localhost/<unresolved>:6379
+2023-10-19 16:02:23:585 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource(HikariDataSource.java 350) -HikariPool-1 - Shutdown initiated...
+2023-10-19 16:02:23:587 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource(HikariDataSource.java 352) -HikariPool-1 - Shutdown completed.
+2023-10-19 16:10:03:739 [main] INFO  org.example.AdminApplication(StartupInfoLogger.java 51) -Starting AdminApplication using Java 17.0.8 with PID 23528 (D:\javaFile\FirstBlog\admin\target\classes started by banxing in D:\javaFile\FirstBlog)
+2023-10-19 16:10:03:741 [main] INFO  org.example.AdminApplication(SpringApplication.java 634) -No active profile set, falling back to 1 default profile: "default"
+2023-10-19 16:10:04:337 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate(RepositoryConfigurationDelegate.java 291) -Multiple Spring Data modules found, entering strict repository configuration mode
+2023-10-19 16:10:04:339 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate(RepositoryConfigurationDelegate.java 138) -Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-10-19 16:10:04:368 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate(RepositoryConfigurationDelegate.java 208) -Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2023-10-19 16:10:04:910 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer(TomcatWebServer.java 108) -Tomcat initialized with port(s): 8989 (http)
+2023-10-19 16:10:04:916 [main] INFO  org.apache.coyote.http11.Http11NioProtocol(DirectJDKLog.java 173) -Initializing ProtocolHandler ["http-nio-0.0.0.0-8989"]
+2023-10-19 16:10:04:917 [main] INFO  org.apache.catalina.core.StandardService(DirectJDKLog.java 173) -Starting service [Tomcat]
+2023-10-19 16:10:04:918 [main] INFO  org.apache.catalina.core.StandardEngine(DirectJDKLog.java 173) -Starting Servlet engine: [Apache Tomcat/10.1.12]
+2023-10-19 16:10:04:983 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/](DirectJDKLog.java 173) -Initializing Spring embedded WebApplicationContext
+2023-10-19 16:10:04:984 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext(ServletWebServerApplicationContext.java 291) -Root WebApplicationContext: initialization completed in 1212 ms
+2023-10-19 16:10:06:232 [main] INFO  o.s.security.web.DefaultSecurityFilterChain(DefaultSecurityFilterChain.java 54) -Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6b630d4b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@70aa03c0, org.springframework.security.web.context.SecurityContextHolderFilter@36cf6377, org.springframework.security.web.header.HeaderWriterFilter@22172b00, org.example.filter.JwtAuthenticationTokenFilter@46524ebe, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3151277f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@912747d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@44da745f, org.springframework.security.web.session.SessionManagementFilter@1870b9b8, org.springframework.security.web.access.ExceptionTranslationFilter@50e24ea4, org.springframework.security.web.access.intercept.AuthorizationFilter@5ced0537]
+2023-10-19 16:10:06:495 [main] INFO  org.apache.coyote.http11.Http11NioProtocol(DirectJDKLog.java 173) -Starting ProtocolHandler ["http-nio-0.0.0.0-8989"]
+2023-10-19 16:10:06:511 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer(TomcatWebServer.java 220) -Tomcat started on port(s): 8989 (http) with context path ''
+2023-10-19 16:10:06:518 [main] INFO  org.example.AdminApplication(StartupInfoLogger.java 57) -Started AdminApplication in 3.133 seconds (process running for 3.508)
+2023-10-19 16:11:00:244 [http-nio-0.0.0.0-8989-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/](DirectJDKLog.java 173) -Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-19 16:11:00:244 [http-nio-0.0.0.0-8989-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet(FrameworkServlet.java 532) -Initializing Servlet 'dispatcherServlet'
+2023-10-19 16:11:00:245 [http-nio-0.0.0.0-8989-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet(FrameworkServlet.java 554) -Completed initialization in 1 ms
