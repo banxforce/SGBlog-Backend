@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.example.domain.ResponseResult;
+import org.example.domain.dto.RoleChangeStatusDto;
 import org.example.domain.dto.RoleListDto;
 import org.example.domain.entity.LoginUser;
 import org.example.domain.entity.Role;
@@ -53,6 +54,16 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
         // 封装返回
         PageVo pageVo = new PageVo(BeanCopyUtils.copyBeanList(page.getRecords(), RoleVo.class), page.getTotal());
         return ResponseResult.okResult(pageVo);
+    }
+
+    @Override
+    public ResponseResult<Object> changeStatus(RoleChangeStatusDto dto) {
+        //封装
+        Role role = BeanCopyUtils.copyBean(dto, Role.class);
+        // 更新，注意设置字段的自动填充
+        this.updateById(role);
+        // 返回
+        return ResponseResult.okResult();
     }
 
 }
