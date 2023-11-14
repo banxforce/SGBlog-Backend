@@ -38,7 +38,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public ResponseResult<Object> updateUserInfo(UserInfoVo userInfoVo) {
-        // TODO 判断nickName是否有重复
         // UserInfoVo转化成User
         User user = BeanCopyUtils.copyBean(userInfoVo, User.class);
         //存入数据库
