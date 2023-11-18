@@ -3,21 +3,24 @@ package org.example.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import jakarta.annotation.Resource;
 import org.example.domain.ResponseResult;
+import org.example.domain.dto.AddRoleDto;
 import org.example.domain.dto.RoleChangeStatusDto;
 import org.example.domain.dto.RoleListDto;
-import org.example.domain.entity.LoginUser;
 import org.example.domain.entity.Role;
-import org.example.domain.entity.UserRole;
+import org.example.domain.entity.RoleMenu;
 import org.example.domain.vo.PageVo;
 import org.example.domain.vo.RoleVo;
-import org.example.domain.vo.UserInfoVo;
+import org.example.mapper.MenuMapper;
 import org.example.mapper.RoleMapper;
+import org.example.mapper.RoleMenuMapper;
 import org.example.service.RoleService;
 import org.example.utils.BeanCopyUtils;
-import org.example.utils.SecurityUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -29,6 +32,9 @@ import java.util.List;
  */
 @Service("roleService")
 public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements RoleService {
+
+    @Resource
+    private RoleMenuMapper roleMenuMapper;
 
     @Override
     public List<String> selectRoleKeysByUserId(Long userId) {
@@ -64,6 +70,27 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
         this.updateById(role);
         // 返回
         return ResponseResult.okResult();
+    }
+
+    @Transactional
+    @Override
+    public ResponseResult<Object> addRole(AddRoleDto dto) {
+        // 将dto转化成Role
+        Role role = BeanCopyUtils.copyBean(dto, Role.class);
+        // 获取menuIds
+        List<Long> menuIds = dto.getMenuIds();
+        // 插入表记录
+        this.save(role);
+        // 增加role_menu表记录
+        this.addRoleMenu(role.getId(),menuIds);
+        // 返回
+        return ResponseResult.okResult();
+    }
+
+    private void addRoleMenu(Long id, List<Long> menuIds) {
+        menuIds.stream()
+                .map(menuId -> roleMenuMapper.insert(new RoleMenu(id,menuId)))
+                .toList();
     }
 
 }

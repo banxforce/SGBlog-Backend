@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
 import org.example.annotation.SystemLog;
 import org.example.domain.ResponseResult;
+import org.example.domain.dto.AddRoleDto;
 import org.example.domain.dto.RoleChangeStatusDto;
 import org.example.domain.dto.RoleListDto;
 import org.example.service.RoleService;
@@ -35,6 +36,12 @@ public class RoleController {
         return roleService.changeStatus(dto);
     }
 
-
+    @Operation(description = "新增角色")
+    @SystemLog(businessName = "新增角色")
+    @PreAuthorize("@permissionService.hasPermission('system:role:add')")
+    @PostMapping
+    public ResponseResult<Object> addRole(@RequestBody AddRoleDto dto){
+        return roleService.addRole(dto);
+    }
 
 }

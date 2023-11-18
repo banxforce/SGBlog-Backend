@@ -2,6 +2,7 @@ package org.example.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.example.domain.ResponseResult;
+import org.example.domain.dto.AddRoleDto;
 import org.example.domain.dto.RoleChangeStatusDto;
 import org.example.domain.dto.RoleListDto;
 import org.example.domain.entity.Role;
@@ -22,5 +23,8 @@ public interface RoleService extends IService<Role> {
     ResponseResult<Object> list(Long pageNum, Long pageSize, RoleListDto roleListDto);
 
     ResponseResult<Object> changeStatus(RoleChangeStatusDto dto);
+
+    ResponseResult<Object> addRole(AddRoleDto dto);
+
 }
 

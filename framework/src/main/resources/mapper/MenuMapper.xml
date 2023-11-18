@@ -15,7 +15,7 @@
             m.`status` = 0 AND
             m.`del_flag` = 0
     </select>
-    <select id="getALlRouterMenu" resultType="org.example.domain.entity.Menu">
+    <select id="getAllRouterMenu" resultType="org.example.domain.entity.Menu">
         SELECT
             DISTINCT m.id, m.parent_id, m.menu_name, m.path, m.component, m.visible, m.status, IFNULL(m.perms,'') AS perms, m.is_frame,  m.menu_type, m.icon, m.order_num, m.create_time
         FROM

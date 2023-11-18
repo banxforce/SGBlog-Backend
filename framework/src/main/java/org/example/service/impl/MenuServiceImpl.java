@@ -10,10 +10,9 @@ import org.example.domain.dto.MenulListDto;
 import org.example.domain.dto.UpdateMenuDto;
 import org.example.domain.entity.Menu;
 import org.example.domain.vo.AdminMenuListVo;
+import org.example.domain.vo.AdminMenuTreeVo;
 import org.example.domain.vo.AdminMenuVo;
 import org.example.domain.vo.MenuVo;
-import org.example.enums.AppHttpCodeEnum;
-import org.example.exception.SystemException;
 import org.example.mapper.MenuMapper;
 import org.example.service.MenuService;
 import org.example.utils.BeanCopyUtils;
@@ -22,7 +21,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
-import java.util.Objects;
 
 /**
  * 菜单权限表(Menu)表服务实现类
@@ -61,7 +59,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         if (SecurityUtils.isAdmin()) {
             // 从menu表中获取所有菜单类型为C或者M的，状态为正常的，未被删除的权限记录
             // 查询所有路由菜单
-            menus = menuMapper.getALlRouterMenu();
+            menus = menuMapper.getAllRouterMenu();
         }
         else {
             // 否则按用户Id获取对应的路由菜单集合
@@ -140,6 +138,20 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         return ResponseResult.okResult();
     }
 
+    @Override
+    public ResponseResult<Object> treeSelect() {
+        // 获取根菜单集合
+        List<Menu> rootMenus = menuMapper.getAllRouterMenu();
+        // 转换成menuVo
+        List<MenuVo> menuVos = BeanCopyUtils.copyBeanList(rootMenus, MenuVo.class);
+        // 构建菜单树
+        List<MenuVo> tree = builderMenuTree(menuVos, SystemConstants.MENU_PARENT);
+        // 封装返回
+        // FIXME copy成AdminMenuTreeVo时children字段赋值异常
+        //List<AdminMenuTreeVo> result = BeanCopyUtils.copyBeanList(tree, AdminMenuTreeVo.class);
+        return ResponseResult.okResult(tree);
+    }
+
     /**
      * 以parentId为根，menus为节点构建一棵树
      * @param menus 节点集合
@@ -149,7 +161,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
     private List<MenuVo> builderMenuTree(List<MenuVo> menus, Long parentId) {
         List<MenuVo> menuTree = menus.stream()
                 .filter(menuVo -> menuVo.getParentId().equals(parentId))
-                .peek(menuVo -> menuVo.setChildren(getChildren(menuVo, menus)))
+                .peek(menuVo -> menuVo.setChildren(this.getChildren(menuVo, menus)))
                 .toList();
         return menuTree;
     }
@@ -163,7 +175,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
     private List<MenuVo> getChildren(MenuVo menuVo, List<MenuVo> menus) {
         List<MenuVo> childrenList = menus.stream()
                 .filter(m -> m.getParentId().equals(menuVo.getId()))
-                .peek(m->m.setChildren(getChildren(m,menus)))
+                .peek(m->m.setChildren(this.getChildren(m,menus)))
                 .toList();
         return childrenList;
     }

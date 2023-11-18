@@ -60,6 +60,12 @@ public class MenuController {
         return menuService.removeMenu(id);
     }
 
-
+    @PreAuthorize("@permissionService.hasPermission('system:menu:query')")
+    @Operation(description = "获取菜单树")
+    @SystemLog(businessName = "获取菜单树")
+    @GetMapping("/treeselect")
+    public ResponseResult<Object> treeSelect(){
+        return menuService.treeSelect();
+    }
 
 }
