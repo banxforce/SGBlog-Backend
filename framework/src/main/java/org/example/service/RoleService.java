@@ -5,6 +5,7 @@ import org.example.domain.ResponseResult;
 import org.example.domain.dto.AddRoleDto;
 import org.example.domain.dto.RoleChangeStatusDto;
 import org.example.domain.dto.RoleListDto;
+import org.example.domain.dto.UpdateRoleDto;
 import org.example.domain.entity.Role;
 
 import java.util.List;
@@ -26,5 +27,10 @@ public interface RoleService extends IService<Role> {
 
     ResponseResult<Object> addRole(AddRoleDto dto);
 
+    ResponseResult<Object> getRoleById(Long id);
+
+    ResponseResult<Object> updateRole(UpdateRoleDto updateRoleDto);
+
+    ResponseResult<Object> deleteRole(Long id);
 }
 

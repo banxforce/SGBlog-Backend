@@ -63,9 +63,17 @@ public class MenuController {
     @PreAuthorize("@permissionService.hasPermission('system:menu:query')")
     @Operation(description = "获取菜单树")
     @SystemLog(businessName = "获取菜单树")
-    @GetMapping("/treeselect")
+    @GetMapping("/treeSelect")
     public ResponseResult<Object> treeSelect(){
         return menuService.treeSelect();
+    }
+
+    @PreAuthorize("@permissionService.hasPermission('system:menu:query')")
+    @Operation(description = "加载对应角色菜单列表树接口")
+    @SystemLog(businessName = "加载对应角色菜单列表树接口")
+    @GetMapping("/roleMenuTreeSelect/{id}")
+    public ResponseResult<Object> roleMenuTreeSelect(@PathVariable Long id){
+        return menuService.roleMenuTreeSelect(id);
     }
 
 }

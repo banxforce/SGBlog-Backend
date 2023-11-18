@@ -9,11 +9,10 @@ import org.example.domain.dto.AddMenuDto;
 import org.example.domain.dto.MenulListDto;
 import org.example.domain.dto.UpdateMenuDto;
 import org.example.domain.entity.Menu;
-import org.example.domain.vo.AdminMenuListVo;
-import org.example.domain.vo.AdminMenuTreeVo;
-import org.example.domain.vo.AdminMenuVo;
-import org.example.domain.vo.MenuVo;
+import org.example.domain.entity.RoleMenu;
+import org.example.domain.vo.*;
 import org.example.mapper.MenuMapper;
+import org.example.mapper.RoleMenuMapper;
 import org.example.service.MenuService;
 import org.example.utils.BeanCopyUtils;
 import org.example.utils.SecurityUtils;
@@ -33,6 +32,9 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
 
     @Resource
     private MenuMapper menuMapper;
+
+    @Resource
+    private RoleMenuMapper roleMenuMapper;
 
     @Override
     public List<String> selectPermsByUserId(Long userId) {
@@ -143,13 +145,36 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         // 获取根菜单集合
         List<Menu> rootMenus = menuMapper.getAllRouterMenu();
         // 转换成menuVo
-        List<MenuVo> menuVos = BeanCopyUtils.copyBeanList(rootMenus, MenuVo.class);
+        List<AdminMenuTreeVo> adminMenuTreeVos = BeanCopyUtils.copyBeanList(rootMenus, AdminMenuTreeVo.class);
         // 构建菜单树
-        List<MenuVo> tree = builderMenuTree(menuVos, SystemConstants.MENU_PARENT);
+        List<AdminMenuTreeVo> tree = this.builderAdminMenuTree(adminMenuTreeVos, SystemConstants.MENU_PARENT);
         // 封装返回
-        // FIXME copy成AdminMenuTreeVo时children字段赋值异常
-        //List<AdminMenuTreeVo> result = BeanCopyUtils.copyBeanList(tree, AdminMenuTreeVo.class);
         return ResponseResult.okResult(tree);
+    }
+
+    @Override
+    public ResponseResult<Object> roleMenuTreeSelect(Long id) {
+        //查询对应RoleId的菜单集合
+        List<Menu> menus = this.getMenusByRoleId(id);
+        // 转化成VO
+        List<AdminMenuTreeVo> adminMenuTreeVos = BeanCopyUtils.copyBeanList(menus, AdminMenuTreeVo.class);
+        // 构建菜单树
+        List<AdminMenuTreeVo> tree = this.builderAdminMenuTree(adminMenuTreeVos, SystemConstants.MENU_PARENT);
+        // 根据roleId 获取对应的角色所关联的菜单权限id列表 menuIds
+        List<Long> menuIds = roleMenuMapper.selectList(new LambdaQueryWrapper<RoleMenu>().eq(RoleMenu::getRoleId, id))
+                .stream()
+                .map(RoleMenu::getMenuId)
+                .toList();
+        // 封装返回
+        return ResponseResult.okResult(new RoleMenuTreeVo(tree,menuIds));
+    }
+
+    private List<Menu> getMenusByRoleId(Long id) {
+        List<Long> menuIds = roleMenuMapper.selectList(new LambdaQueryWrapper<RoleMenu>().eq(RoleMenu::getRoleId, id))
+                .stream()
+                .map(RoleMenu::getMenuId)
+                .toList();
+        return this.listByIds(menuIds);
     }
 
     /**
@@ -175,6 +200,22 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
     private List<MenuVo> getChildren(MenuVo menuVo, List<MenuVo> menus) {
         List<MenuVo> childrenList = menus.stream()
                 .filter(m -> m.getParentId().equals(menuVo.getId()))
+                .peek(m->m.setChildren(this.getChildren(m,menus)))
+                .toList();
+        return childrenList;
+    }
+
+    private List<AdminMenuTreeVo> builderAdminMenuTree(List<AdminMenuTreeVo> menus, Long parentId) {
+        List<AdminMenuTreeVo> menuTree = menus.stream()
+                .filter(adminMenuTreeVo -> adminMenuTreeVo.getParentId().equals(parentId))
+                .peek(adminMenuTreeVo -> adminMenuTreeVo.setChildren(this.getChildren(adminMenuTreeVo, menus)))
+                .toList();
+        return menuTree;
+    }
+
+    private List<AdminMenuTreeVo> getChildren(AdminMenuTreeVo adminMenuTreeVo, List<AdminMenuTreeVo> menus) {
+        List<AdminMenuTreeVo> childrenList = menus.stream()
+                .filter(m -> m.getParentId().equals(adminMenuTreeVo.getId()))
                 .peek(m->m.setChildren(this.getChildren(m,menus)))
                 .toList();
         return childrenList;

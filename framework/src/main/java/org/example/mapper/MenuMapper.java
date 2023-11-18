@@ -20,5 +20,6 @@ public interface MenuMapper extends BaseMapper<Menu> {
     List<Menu> getAllRouterMenu();
 
     List<Menu> getRouterMenuByUserId(Long userId);
+
 }
 

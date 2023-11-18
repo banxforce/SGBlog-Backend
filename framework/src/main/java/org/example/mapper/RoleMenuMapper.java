@@ -14,5 +14,6 @@ import org.example.domain.entity.RoleMenu;
 @Mapper
 public interface RoleMenuMapper extends BaseMapper<RoleMenu> {
 
+
 }
 

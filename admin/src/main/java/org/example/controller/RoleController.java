@@ -8,6 +8,7 @@ import org.example.domain.ResponseResult;
 import org.example.domain.dto.AddRoleDto;
 import org.example.domain.dto.RoleChangeStatusDto;
 import org.example.domain.dto.RoleListDto;
+import org.example.domain.dto.UpdateRoleDto;
 import org.example.service.RoleService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -44,4 +45,26 @@ public class RoleController {
         return roleService.addRole(dto);
     }
 
+    @Operation(description = "角色信息回显")
+    @SystemLog(businessName = "角色信息回显")
+    @PreAuthorize("@permissionService.hasPermission('system:role:query')")
+    @GetMapping("/{id}")
+    public ResponseResult<Object> getRoleById(@PathVariable Long id){
+        return roleService.getRoleById(id);
+    }
+
+    @Operation(description = "修改角色")
+    @SystemLog(businessName = "修改角色")
+    @PreAuthorize("@permissionService.hasPermission('system:role:edit')")
+    @PutMapping
+    public ResponseResult<Object> updateRole(@RequestBody UpdateRoleDto updateRoleDto){
+        return roleService.updateRole(updateRoleDto);
+    }
+    @Operation(description = "删除角色")
+    @SystemLog(businessName = "删除角色")
+    @PreAuthorize("@permissionService.hasPermission('system:role:remove')")
+    @DeleteMapping("/{id}")
+    public ResponseResult<Object> deleteRole(@PathVariable Long id){
+        return roleService.deleteRole(id);
+    }
 }

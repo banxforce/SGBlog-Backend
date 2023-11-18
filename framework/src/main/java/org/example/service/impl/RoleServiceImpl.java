@@ -8,6 +8,7 @@ import org.example.domain.ResponseResult;
 import org.example.domain.dto.AddRoleDto;
 import org.example.domain.dto.RoleChangeStatusDto;
 import org.example.domain.dto.RoleListDto;
+import org.example.domain.dto.UpdateRoleDto;
 import org.example.domain.entity.Role;
 import org.example.domain.entity.RoleMenu;
 import org.example.domain.vo.PageVo;
@@ -87,9 +88,58 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
         return ResponseResult.okResult();
     }
 
-    private void addRoleMenu(Long id, List<Long> menuIds) {
+    @Override
+    public ResponseResult<Object> getRoleById(Long id) {
+        // 查询记录
+        Role role = this.getById(id);
+        // 封装
+        RoleVo roleVo = BeanCopyUtils.copyBean(role, RoleVo.class);
+        // 返回
+        return ResponseResult.okResult(roleVo);
+    }
+
+    @Transactional
+    @Override
+    public ResponseResult<Object> updateRole(UpdateRoleDto updateRoleDto) {
+        // 转化成Role
+        Role role = BeanCopyUtils.copyBean(updateRoleDto, Role.class);
+        // 获取menuId集合
+        List<Long> menuIds = updateRoleDto.getMenuIds();
+        // 更新role表
+        this.updateById(role);
+        // 更新role_menu表
+        this.updateRoleMenu(role.getId(),menuIds);
+        // 返回
+        return ResponseResult.okResult();
+    }
+
+    @Transactional
+    @Override
+    public ResponseResult<Object> deleteRole(Long id) {
+        // 设置了逻辑删除字段，直接调用方法删除即可
+        this.removeById(id);
+        // 删除role_menu表中对应记录
+        this.deleteRoleMenu(id);
+        // 返回
+        return ResponseResult.okResult();
+    }
+
+
+    private void deleteRoleMenu(Long roleId){
+        roleMenuMapper.delete(new LambdaQueryWrapper<RoleMenu>().eq(RoleMenu::getRoleId,roleId));
+    }
+
+
+    private void updateRoleMenu(Long roleId, List<Long> menuIds) {
+        // 根据roleId删除RoleMenu中的记录
+        this.deleteRoleMenu(roleId);
+        // 添加记录
+        this.addRoleMenu(roleId,menuIds);
+    }
+
+    private void addRoleMenu(Long roleId, List<Long> menuIds) {
         menuIds.stream()
-                .map(menuId -> roleMenuMapper.insert(new RoleMenu(id,menuId)))
+                .map(menuId -> roleMenuMapper.insert(new RoleMenu(roleId,menuId)))
                 .toList();
     }
 
