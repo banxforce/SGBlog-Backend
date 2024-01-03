@@ -26,6 +26,7 @@ import java.io.InputStream;
 @Setter
 public class UploadServiceImpl implements UploadService {
 
+    // 会通过setter从配置文件中获取
     private String accessKey;
     private String secretKey;
     private String bucket;

@@ -30,6 +30,7 @@ logging:
   level:
     root: info
   config: classpath:slf4j.xml
+
 springdoc:
   swagger-ui:
     path: /swagger-ui.html

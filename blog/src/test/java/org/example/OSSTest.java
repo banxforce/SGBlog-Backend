@@ -45,14 +45,14 @@ public class OSSTest {
         //...生成上传凭证，然后准备上传
         String accessKey = "5ioHm8igPD33iL9P2kEe0WS-I6e5kvEtKWhHOyK-";
         String secretKey = "MJ1KMRRIMyKdeh2egoAu8jq2UEP9p2GYvE7c8T1j";
-        String bucket = "mrb-oss";
+        String bucket = "sg-blog-mrw";
 
         //默认不指定key的情况下，以文件内容的hash值作为文件名
         String key = new Date().toString() + "/" + "白丝.jpg";
 
         try {
             //byte[] uploadBytes = "hello qiniu cloud".getBytes("utf-8");
-            FileInputStream inputStream = new FileInputStream("D:\\za\\短视频素材\\图片\\白丝.jpg");
+            FileInputStream inputStream = new FileInputStream("D:\\图片\\倒影.jpg");
             //ByteArrayInputStream byteInputStream=new ByteArrayInputStream(uploadBytes);
             Auth auth = Auth.create(accessKey, secretKey);
             String upToken = auth.uploadToken(bucket);

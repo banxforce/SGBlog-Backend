@@ -6,5 +6,7 @@ oss:
   secretKey: MJ1KMRRIMyKdeh2egoAu8jq2UEP9p2GYvE7c8T1j
   # OSS Bucket 名称
   bucket: sg-blog-mrw
-  # OSS Bucket 对应的 CDN 地址
-  cdn: s21taor9o.bkt.clouddn.com/
+  # OSS Bucket 对应的 CDN 地址，外链
+  cdn: s6nwxxpsb.hd-bkt.clouddn.com/
+
+
