@@ -39,12 +39,16 @@ public class SecurityConfig{
 
     @Bean
     AuthenticationManager authenticationManager() {
+        // 创建 DaoAuthenticationProvider 实例
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
+        // 设置用户详细信息服务，例如自定义的用户服务类实现 UserDetailsService 接口
         daoAuthenticationProvider.setUserDetailsService(userDetailsService);
-        //千万不能忘了这个！！！！！
+        // 设置密码编码器，用于加密和验证密码。
         daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
+        // 返回一个 ProviderManager，它是 AuthenticationManager 的一个实现
         return new ProviderManager(daoAuthenticationProvider);
     }
+
 
     @Bean
     public PasswordEncoder passwordEncoder() {

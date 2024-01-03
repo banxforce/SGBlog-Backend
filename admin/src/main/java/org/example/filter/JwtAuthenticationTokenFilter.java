@@ -44,9 +44,12 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
             filterChain.doFilter(request,response);
             return;
         }
-        DecodedJWT verify;
+        String userId = null;
         try {
-            verify = JwtUtils.parseJwt(token);
+            // 拿到token解析器,并解析token
+            DecodedJWT verify = JwtUtils.parseJwt(token);
+            // 拿到token中的userId
+            userId = verify.getSubject();
         } catch (Exception e) {
             // token超时,token非法
             //全局异常处理在controller层，filter层在此之前,所以需要处理掉
@@ -54,8 +57,6 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
             WebUtils.renderString(response, JSON.toJSONString(result));
             return;
         }
-        // 解析token,拿到token中的userId
-        String userId = verify.getSubject();
 
 //        // 从redis中读取用户信息,返回的是JsonObject,强转会报错
 //        Object jsonObject = redisCache.getCacheObject(RedisKeyConstants.BLOGLOGIN_PREFIX + userId);

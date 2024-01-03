@@ -1,5 +1,10 @@
+# 七牛云
 oss:
+  # Access Key 用于访问 OSS 的身份标识
   accessKey: 5ioHm8igPD33iL9P2kEe0WS-I6e5kvEtKWhHOyK-
+  # Secret Key 是访问 OSS 的私密凭证，请妥善保管
   secretKey: MJ1KMRRIMyKdeh2egoAu8jq2UEP9p2GYvE7c8T1j
-  bucket: mrb-oss
+  # OSS Bucket 名称
+  bucket: sg-blog-mrw
+  # OSS Bucket 对应的 CDN 地址
   cdn: s21taor9o.bkt.clouddn.com/

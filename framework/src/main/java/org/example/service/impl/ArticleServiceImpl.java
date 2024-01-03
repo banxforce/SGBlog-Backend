@@ -2,10 +2,8 @@ package org.example.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.baomidou.mybatisplus.extension.conditions.update.LambdaUpdateChainWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import io.jsonwebtoken.impl.Base64UrlCodec;
 import jakarta.annotation.Resource;
 import org.example.constant.RedisKeyConstants;
 import org.example.constant.SystemConstants;
@@ -16,7 +14,6 @@ import org.example.domain.dto.UpdateArticleDto;
 import org.example.domain.entity.Article;
 import org.example.domain.entity.ArticleTag;
 import org.example.domain.entity.Category;
-import org.example.domain.entity.Tag;
 import org.example.domain.vo.*;
 import org.example.mapper.ArticleMapper;
 import org.example.mapper.ArticleTagMapper;
@@ -28,7 +25,6 @@ import org.example.utils.RedisCache;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
-import org.yaml.snakeyaml.events.Event;
 
 import java.util.List;
 import java.util.Objects;
@@ -129,7 +125,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    public ResponseResult<Object> updateViewCount(Long id) {
+    public ResponseResult<Object> incrementViewCount(Long id) {
         // 根据id更新redis中的阅读量
         redisCache.incrementCacheMapValue(RedisKeyConstants.ARTICLE_VIEW_COUNT,id.toString(),1);
         return ResponseResult.okResult();
@@ -215,6 +211,19 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
                 .eq(ArticleTag::getArticleId, id));
         // 返回
         return ResponseResult.okResult();
+    }
+
+    @Override
+    public void updateViewCountBatch(List<ArticleVIewCountVo> articles) {
+        //  遍历列表
+        articles.forEach(articleVIewCountVo -> {
+            // 构造语句
+            LambdaUpdateWrapper<Article> wrapper = new LambdaUpdateWrapper<Article>()
+                    .set(Article::getViewCount, articleVIewCountVo.getViewCount())
+                    .eq(Article::getId,articleVIewCountVo.getId());
+            // 更新
+            articleMapper.update(null, wrapper);
+        });
     }
 
 }

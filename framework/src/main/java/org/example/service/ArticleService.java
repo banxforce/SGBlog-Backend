@@ -6,6 +6,9 @@ import org.example.domain.dto.AddArticleDto;
 import org.example.domain.dto.ArticleListDto;
 import org.example.domain.dto.UpdateArticleDto;
 import org.example.domain.entity.Article;
+import org.example.domain.vo.ArticleVIewCountVo;
+
+import java.util.List;
 
 public interface ArticleService extends IService<Article> {
     ResponseResult<Object> hotArticleList();
@@ -14,7 +17,7 @@ public interface ArticleService extends IService<Article> {
 
     ResponseResult<Object> articleDetails(Long id);
 
-    ResponseResult<Object> updateViewCount(Long id);
+    ResponseResult<Object> incrementViewCount(Long id);
 
     ResponseResult<Object> addArticle(AddArticleDto addArticleDto);
 
@@ -25,4 +28,6 @@ public interface ArticleService extends IService<Article> {
     ResponseResult<Object> updateArticle(UpdateArticleDto updateArticleDto);
 
     ResponseResult<Object> deleteArticle(Long id);
+
+    void updateViewCountBatch(List<ArticleVIewCountVo> articles);
 }

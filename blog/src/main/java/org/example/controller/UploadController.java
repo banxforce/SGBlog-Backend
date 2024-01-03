@@ -18,9 +18,9 @@ public class UploadController {
     @Resource
     private UploadService uploadService;
 
-    @SystemLog(businessName = "上传头像")
+    //@SystemLog(businessName = "上传头像")
     @PostMapping("/upload")
-    public ResponseResult<Object> uploadImg(@RequestParam MultipartFile img){
+    public ResponseResult<Object> uploadImg( MultipartFile img){
         return uploadService.uploadImg(img);
     }
 

@@ -11,11 +11,12 @@ import org.springframework.stereotype.Component;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-@SuppressWarnings(value = { "unchecked", "rawtypes" })
+@SuppressWarnings(value = { "unchecked", "rawtypes" }) // 抑制警告
 @Component
 public class RedisCache {
 
-    @Resource
+
+    @Resource   // 由Spring提供
     public RedisTemplate redisTemplate;
 
     /**
@@ -105,7 +106,7 @@ public class RedisCache {
      *
      * @param key 缓存的键值
      * @param dataList 待缓存的List数据
-     * @return 缓存的对象
+     * @return 缓存的对象个数
      */
     public <T> long setCacheList(final String key, final List<T> dataList)
     {
@@ -133,6 +134,7 @@ public class RedisCache {
      */
     public <T> BoundSetOperations<String, T> setCacheSet(final String key, final Set<T> dataSet)
     {
+        // boundSetOps(key),一种方便操作value的对象。当然也可以用redisTemplate.opsForSet()
         BoundSetOperations<String, T> setOperation = redisTemplate.boundSetOps(key);
         Iterator<T> it = dataSet.iterator();
         while (it.hasNext())
@@ -154,7 +156,7 @@ public class RedisCache {
     }
 
     /**
-     * 缓存Map
+     * 缓存Map,也就是redis中的hash类型
      *
      * @param key
      * @param dataMap
@@ -226,10 +228,10 @@ public class RedisCache {
     }
 
     /**
-     * 获得缓存的基本对象列表
+     * 获得缓存的基本对象列表,查找所有符合指定模式的键
      *
-     * @param pattern 字符串前缀
-     * @return 对象列表
+     * @param pattern 字符串前缀，允许使用通配符 ? *
+     * @return 对象列表,key的集合
      */
     public Collection<String> keys(final String pattern)
     {

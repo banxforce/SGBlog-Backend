@@ -36,7 +36,8 @@ public class ArticleController {
     @SystemLog(businessName = "更新访问量")
     @PutMapping("updateViewCount/{id}")
     public ResponseResult<Object> updateViewCount(@PathVariable Long id){
-        return articleService.updateViewCount(id);
+        // 对应文章id的文章访问量自增
+        return articleService.incrementViewCount(id);
     }
 
 }

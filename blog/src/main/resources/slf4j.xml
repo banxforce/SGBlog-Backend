@@ -123,8 +123,8 @@
     <logger name="com.baomidou.mybatisplus" level="INFO"/>
     <logger name="org.apache.ibatis.io" level="INFO"/>
 
-    <!--  自己项目的mapper 路径 -->
-    <logger name="org.example.controller" level="INFO"/>
+    <!--  自己项目的mapper 路径 ,将会输出指定包下的日志信息-->
+    <logger name="org.example.mapper" level="INFO"/>
 
 
     <!-- 根日志,所有日志appender都必须包含在root/logger中,否则不会起作用 -->

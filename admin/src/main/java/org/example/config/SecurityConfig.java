@@ -10,6 +10,7 @@ import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.EnableGlobalAuthentication;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -28,7 +29,8 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 前后台模块有不同的认证授权规则
  */
 @Configuration
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+// prePostEnable = (default) true
+@EnableMethodSecurity
 public class SecurityConfig {
 
     @Resource

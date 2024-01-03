@@ -43,6 +43,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
         if(!StringUtils.hasText(token)){
             //假设该接口不需要登录,直接放行
             filterChain.doFilter(request,response);
+            // 返回时从doFilter后继续执行
             return;
         }
         DecodedJWT verify;

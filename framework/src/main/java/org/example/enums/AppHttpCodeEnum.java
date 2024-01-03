@@ -2,6 +2,10 @@ package org.example.enums;
 
 import lombok.Getter;
 
+/**
+ * 枚举类，定义了常见的HTTP请求状态码和对应的信息
+ * 包含了一系列常见的HTTP请求状态码和对应的信息，用于返回给客户端以标识请求状态。
+ */
 @Getter
 public enum AppHttpCodeEnum {
     //成功
@@ -22,14 +26,17 @@ public enum AppHttpCodeEnum {
     PASSWORD_FORMAT_ERROR(513,"密码只能由6-12位的字母、数字和下划线组成"),
     TAG_NAME_NOT_NULL(514,"标签名不能为空");
 
-
     private int code;
     private String message;
 
+    /**
+     * 构造函数，用于设置枚举值的 code 和 message
+     * @param code 错误码
+     * @param errorMessage 错误信息
+     */
     AppHttpCodeEnum(int code, String errorMessage){
         this.code=code;
         this.message=errorMessage;
     }
-
 
 }

@@ -18,9 +18,22 @@ import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * 拦截器阶段：WebMvcConfigurer 中的某些方法确实是在拦截器阶段生效的，比如 addInterceptors 方法用于注册和配置拦截器。
+ *
+ * 消息转换器阶段：WebMvcConfigurer 接口中的 configureMessageConverters 方法用于配置消息转换器，这个阶段发生在请求被处理之前。
+ *
+ * 资源处理器阶段：addResourceHandlers 方法用于配置静态资源的处理器，可以在该阶段配置静态资源的访问路径、存放位置等。
+ *
+ * 视图解析器阶段：configureViewResolvers 方法允许配置视图解析器，这会影响到视图的解析和渲染。
+ */
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
+    /**
+     * 这个方法是在拦截器阶段生效的，security的过滤链由filter组成。
+     * 如果引入了security，这个配置就失效了，需要在security中再进行配置
+     */
     //解决cors跨域问题，与security的cors配置类似
     @Override
     public void addCorsMappings(CorsRegistry registry) {
@@ -48,16 +61,7 @@ public class WebConfig implements WebMvcConfigurer {
         // 创建 FastJsonHttpMessageConverter 对象
         FastJsonHttpMessageConverter converter = new FastJsonHttpMessageConverter();
         // 创建 FastJson 的配置对象
-        FastJsonConfig config = new FastJsonConfig();
-
-        // 设置日期格式为 "yyyy-MM-dd HH:mm:ss"
-        config.setDateFormat("yyyy-MM-dd HH:mm:ss");
-        // 设置 JSONReader 特性，这里使用 FieldBased 和 SupportArrayToBean
-        config.setReaderFeatures(JSONReader.Feature.FieldBased, JSONReader.Feature.SupportArrayToBean);
-        // 设置 JSONWriter 特性，这里使用 PrettyFormat :输出的 JSON 字符串将进行格式化，添加缩进和换行符，使其更易读。
-        config.setWriterFeatures(JSONWriter.Feature.PrettyFormat,
-                // 将Long类型作为String序列化
-                JSONWriter.Feature.WriteLongAsString);
+        FastJsonConfig config = this.getFastJsonConfig();
 
         // 将配置应用到 FastJsonHttpMessageConverter
         converter.setFastJsonConfig(config);
@@ -67,6 +71,22 @@ public class WebConfig implements WebMvcConfigurer {
         converter.setSupportedMediaTypes(Collections.singletonList(MediaType.APPLICATION_JSON));
         // 将 FastJsonHttpMessageConverter 添加到 converters 列表的首位
         converters.add(0, converter);
+    }
+
+    private  FastJsonConfig getFastJsonConfig() {
+        FastJsonConfig config = new FastJsonConfig();
+        /*
+        * 设置日期格式为 "yyyy-MM-dd HH:mm:ss"。日期类型的字段会按照指定的格式转换为对应的字符串格式
+        * 这里设置了输出的日期格式，日期类型的字段会按照指定的格式转换为对应的字符串格式
+        * 同样的，在反序列时前端传过来的日期数据也要符合"yyyy-MM-dd HH:mm:ss" ，不然无法解析成Date对象或直接抛出异常*/
+        config.setDateFormat("yyyy-MM-dd HH:mm:ss");
+        // 设置 JSONReader 特性，这里使用 FieldBased 和 SupportArrayToBean
+        config.setReaderFeatures(JSONReader.Feature.FieldBased, JSONReader.Feature.SupportArrayToBean);
+        // 设置 JSONWriter 特性，这里使用 PrettyFormat :输出的 JSON 字符串将进行格式化，添加缩进和换行符，使其更易读。
+        config.setWriterFeatures(JSONWriter.Feature.PrettyFormat,
+                // 将Long类型作为String序列化
+                JSONWriter.Feature.WriteLongAsString);
+        return config;
     }
 
 }
