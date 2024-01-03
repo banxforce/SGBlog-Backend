@@ -32,6 +32,8 @@ public class CommentVo {
 
     private String username;//当前评论的nickname
 
+    private String avatar; //用户头像
+
     private List<CommentVo> children;//子评论
 
 }

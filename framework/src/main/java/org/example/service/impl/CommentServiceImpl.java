@@ -7,6 +7,7 @@ import jakarta.annotation.Resource;
 import org.example.constant.SystemConstants;
 import org.example.domain.ResponseResult;
 import org.example.domain.entity.Comment;
+import org.example.domain.entity.User;
 import org.example.domain.vo.CommentVo;
 import org.example.domain.vo.PageVo;
 import org.example.enums.AppHttpCodeEnum;
@@ -84,12 +85,15 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
      * @return List<CommentVo>
      */
     private List<CommentVo> toCommentVoList(List<Comment> comments) {
-        // 通过createBy得到评论者的nickName,通过toCommentUserId得到被评论者的nickName
+        // 通过createBy得到评论者的nickName和avatar（头像）,通过toCommentUserId得到被评论者的nickName
         List<CommentVo> commentVos = BeanCopyUtils.copyBeanList(comments, CommentVo.class);
         commentVos.stream()
                 .peek(commentVo -> {
-                    String nickName = userMapper.selectById(commentVo.getCreateBy()).getNickName();
-                    commentVo.setUsername(nickName);
+                    User user = userMapper.selectById(commentVo.getCreateBy());
+                    // 设置昵称
+                    commentVo.setUsername(user.getNickName());
+                    // 设置头像
+                    commentVo.setAvatar(user.getAvatar());
                     // 回复了其他评论
                     if (commentVo.getToCommentUserId() != -1) {
                         String toCommentUserName = userMapper.selectById(commentVo.getToCommentUserId()).getNickName();

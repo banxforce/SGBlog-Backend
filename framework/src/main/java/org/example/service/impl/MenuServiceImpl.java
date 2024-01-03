@@ -178,7 +178,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
     }
 
     /**
-     * 以parentId为根，menus为节点构建一棵树
+     * 通过parentId获取出根集合，然后依次构建成树
      * @param menus 节点集合
      * @param parentId 根节点属性
      * @return 构建好的树形结构
@@ -193,7 +193,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
 
     /**
      * 根据传入menuVo的parentId为其设置children字段，然后遍历递归设置下一级对象的children字段
-     * @param menuVo 要为其设置children字段的对象
+     * @param menuVo 当前的根(父节点)
      * @param menus  menu集合
      * @return 设置好children字段的对象集合
      */
