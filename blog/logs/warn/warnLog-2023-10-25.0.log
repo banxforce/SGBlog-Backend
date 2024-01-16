@@ -1,2 +1,0 @@
-2023-10-25 14:50:48:580 [main] WARN  c.b.mybatisplus.core.injector.DefaultSqlInjector(DefaultSqlInjector.java 56) -class org.example.domain.entity.ArticleTag ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-10-25 14:50:48:941 [main] WARN  c.b.mybatisplus.core.injector.DefaultSqlInjector(DefaultSqlInjector.java 56) -class org.example.domain.entity.UserRole ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
