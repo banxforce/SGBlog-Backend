@@ -63,6 +63,8 @@ public class SecurityConfig{
                     CorsConfiguration cors = new CorsConfiguration();
                     //添加前端站点地址，这样就可以告诉浏览器信任了
                     cors.addAllowedOrigin("http://localhost:8080");
+                    // 腾讯云试用服务器
+                    cors.addAllowedOrigin("http://150.158.44.13");
                     //虽然也可以像这样允许所有 cors.addAllowedOriginPattern("*");
                     //但是这样并不安全，我们应该只许可给我们信任的站点
                     cors.setAllowCredentials(true);  //允许跨域请求中携带Cookie

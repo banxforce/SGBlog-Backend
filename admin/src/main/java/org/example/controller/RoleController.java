@@ -53,8 +53,8 @@ public class RoleController {
         return roleService.getRoleById(id);
     }
 
-    @Operation(description = "修改角色")
-    @SystemLog(businessName = "修改角色")
+    @Operation(description = "更新角色信息")
+    @SystemLog(businessName = "更新角色信息")
     @PreAuthorize("@permissionService.hasPermission('system:role:edit')")
     @PutMapping
     public ResponseResult<Object> updateRole(@RequestBody UpdateRoleDto updateRoleDto){
@@ -67,4 +67,14 @@ public class RoleController {
     public ResponseResult<Object> deleteRole(@PathVariable Long id){
         return roleService.deleteRole(id);
     }
+
+    @Operation(description = "所有状态正常的角色")
+    @SystemLog(businessName = "所有状态正常的角色")
+    @PreAuthorize("@permissionService.hasPermission('system:user:add')")
+    @GetMapping("/listAllRole")
+    public ResponseResult<Object> getAllRole(){
+        return roleService.getAllRole();
+    }
+
+
 }

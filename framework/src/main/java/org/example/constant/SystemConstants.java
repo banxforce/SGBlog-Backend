@@ -1,7 +1,5 @@
 package org.example.constant;
 
-import io.swagger.v3.oas.models.security.SecurityScheme;
-
 public class SystemConstants {
     /**
      * 文章是草稿
@@ -71,5 +69,9 @@ public class SystemConstants {
      * 用户账户类型为管理员
      */
     public static final String USER_TYPE_ADMIN = "1";
+    /**
+     * 角色状态正常
+     */
+    public static final String ROLE_STATUS_NORMAL = "0" ;
 
 }

@@ -21,6 +21,10 @@ public class UserInfoVo {
      */
     private String avatar;
 
+    private String status;//账号状态（0正常 1停用）;后台需要
+
+    private String phonenumber;//手机号; 未进行加密处理
+
     private String sex;
 
     private String email;

@@ -24,10 +24,11 @@ public enum AppHttpCodeEnum {
     EMAIL_NOT_NULL(510,"邮箱不能为空"),EMAIL_EXIST(503,"邮箱已经存在"),
     NICKNAME_NOT_NULL(511,"昵称不能为空"), NICKNAME_EXIST(512, "昵称已存在"),
     PASSWORD_FORMAT_ERROR(513,"密码只能由6-12位的字母、数字和下划线组成"),
-    TAG_NAME_NOT_NULL(514,"标签名不能为空");
+    TAG_NAME_NOT_NULL(514,"标签名不能为空"),
+    PHONENUMBER_NOT_NULL(515,"手机号码不能为空");
 
-    private int code;
-    private String message;
+    private final int code;
+    private final String message;
 
     /**
      * 构造函数，用于设置枚举值的 code 和 message

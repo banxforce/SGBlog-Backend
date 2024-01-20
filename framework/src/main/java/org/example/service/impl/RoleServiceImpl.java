@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import jakarta.annotation.Resource;
+import org.example.constant.SystemConstants;
 import org.example.domain.ResponseResult;
 import org.example.domain.dto.AddRoleDto;
 import org.example.domain.dto.RoleChangeStatusDto;
@@ -11,9 +12,9 @@ import org.example.domain.dto.RoleListDto;
 import org.example.domain.dto.UpdateRoleDto;
 import org.example.domain.entity.Role;
 import org.example.domain.entity.RoleMenu;
+import org.example.domain.vo.GetAllRoleVo;
 import org.example.domain.vo.PageVo;
 import org.example.domain.vo.RoleVo;
-import org.example.mapper.MenuMapper;
 import org.example.mapper.RoleMapper;
 import org.example.mapper.RoleMenuMapper;
 import org.example.service.RoleService;
@@ -21,7 +22,6 @@ import org.example.utils.BeanCopyUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -122,6 +122,18 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
         this.deleteRoleMenu(id);
         // 返回
         return ResponseResult.okResult();
+    }
+
+    @Override
+    public ResponseResult<Object> getAllRole() {
+        // 查询的是所有状态正常的角色
+        LambdaQueryWrapper<Role> queryWrapper = new LambdaQueryWrapper<Role>().eq(Role::getStatus, SystemConstants.ROLE_STATUS_NORMAL);
+        // 查询
+        List<Role> roles = this.list(queryWrapper);
+        // 装换成vo
+        List<GetAllRoleVo> allRoleVos = BeanCopyUtils.copyBeanList(roles, GetAllRoleVo.class);
+
+        return new ResponseResult<>().ok(allRoleVos);
     }
 
 

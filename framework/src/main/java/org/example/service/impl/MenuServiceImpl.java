@@ -56,7 +56,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
     @Override
     public List<MenuVo> selectRouterMenuTreeByUserId(Long userId) {
         MenuMapper menuMapper = getBaseMapper();
-        List<Menu> menus = null;
+        List<Menu> menus;
         //如果是超级管理员
         if (SecurityUtils.isAdmin()) {
             // 从menu表中获取所有菜单类型为C或者M的，状态为正常的，未被删除的权限记录
@@ -154,7 +154,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
 
     @Override
     public ResponseResult<Object> roleMenuTreeSelect(Long id) {
-        //查询对应RoleId的菜单集合
+        // 查询对应RoleId的菜单集合
         List<Menu> menus = this.getMenusByRoleId(id);
         // 转化成VO
         List<AdminMenuTreeVo> adminMenuTreeVos = BeanCopyUtils.copyBeanList(menus, AdminMenuTreeVo.class);
@@ -170,11 +170,24 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
     }
 
     private List<Menu> getMenusByRoleId(Long id) {
-        List<Long> menuIds = roleMenuMapper.selectList(new LambdaQueryWrapper<RoleMenu>().eq(RoleMenu::getRoleId, id))
+        // 如果是“超级管理员“即 id==1，返回全部权限（menu）
+        if(id == 1){
+            return this.list(new LambdaQueryWrapper<Menu>()
+                    // 状态为正常
+                    .eq(Menu::getStatus, SystemConstants.MENU_STATUS_NORMAL));
+        }
+
+        List<Menu> menus = roleMenuMapper.selectList(new LambdaQueryWrapper<RoleMenu>().eq(RoleMenu::getRoleId, id))
                 .stream()
+                // 通过roleId获取menuId集合
                 .map(RoleMenu::getMenuId)
+                // 通过menuId获取menu集合
+                .map(menuId -> this.getOne(new LambdaQueryWrapper<Menu>()
+                        .eq(Menu::getId,menuId)
+                        // 状态为正常
+                        .eq(Menu::getStatus,SystemConstants.MENU_STATUS_NORMAL)))
                 .toList();
-        return this.listByIds(menuIds);
+        return menus;
     }
 
     /**
