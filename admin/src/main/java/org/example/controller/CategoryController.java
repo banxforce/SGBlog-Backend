@@ -5,24 +5,30 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletResponse;
 import org.example.annotation.SystemLog;
+import org.example.constant.SystemConstants;
 import org.example.domain.ResponseResult;
+import org.example.domain.dto.AddCategoryDto;
+import org.example.domain.dto.PageSelectDto;
+import org.example.domain.dto.UpdateCategoryDto;
 import org.example.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 @RestController
 @Tag(name = "分类")
 @RequestMapping("/content/category")
+@PreAuthorize("@permissionService.hasPermission('content/category/index')")
 public class CategoryController {
 
     @Resource
     private CategoryService categoryService;
 
-
-    //@PreAuthorize("@permissionService.hasPermission('content:category:list')")
     @Operation(description = "查询所有分类")
     @SystemLog(businessName = "查询所有分类")
     @GetMapping("/listAllCategory")
@@ -37,6 +43,53 @@ public class CategoryController {
     @GetMapping("/export")
     public void export(@Autowired HttpServletResponse response){
         categoryService.export(response);
+    }
+
+
+    @Operation(description = "分页查询分类列表")
+    @SystemLog(businessName = "分页查询分类列表")
+    @GetMapping("/list")
+    public ResponseResult<Object> pageList(PageSelectDto pageSelectDto){
+        return categoryService.pageList(pageSelectDto);
+    }
+
+    @Operation(description = "新增分类")
+    @SystemLog(businessName = "新增分类")
+    @PostMapping
+    public ResponseResult<Object> addCategory(@RequestBody AddCategoryDto addCategoryDto){
+        // 参数是否非法
+        boolean illegal = Objects.isNull(addCategoryDto.getName()) || !StringUtils.hasText(addCategoryDto.getName()) ||
+                Objects.isNull(addCategoryDto.getDescription()) || !StringUtils.hasText(addCategoryDto.getDescription()) ||
+                !List.of(SystemConstants.CATEGORY_STATUS_NORMAL, SystemConstants.CATEGORY_STATUS_DISABLE).contains(addCategoryDto.getStatus());
+        if(illegal) return null;
+        return categoryService.addCategory(addCategoryDto);
+    }
+
+    @Operation(description = "修改分类-根据id查询分类")
+    @SystemLog(businessName = "修改分类-根据id查询分类")
+    @GetMapping("/{id}")
+    public ResponseResult<Object> getCategoryById(@PathVariable Long id){
+        return categoryService.getCategoryById(id);
+    }
+
+    @Operation(description = "修改分类-更新分类")
+    @SystemLog(businessName = "修改分类-更新分类")
+    @PutMapping
+    public ResponseResult<Object> updateCategory(@RequestBody UpdateCategoryDto categoryDto){
+        // 参数是否非法
+        boolean illegal = Objects.isNull(categoryDto.getId()) ||
+                Objects.isNull(categoryDto.getName()) || !StringUtils.hasText(categoryDto.getName()) ||
+                Objects.isNull(categoryDto.getDescription()) || !StringUtils.hasText(categoryDto.getDescription()) ||
+                !List.of(SystemConstants.CATEGORY_STATUS_NORMAL, SystemConstants.CATEGORY_STATUS_DISABLE).contains(categoryDto.getStatus());
+        if(illegal) return null;
+        return categoryService.updateCategory(categoryDto);
+    }
+
+    @Operation(description = "删除分类")
+    @SystemLog(businessName = "删除分类")
+    @DeleteMapping("/{id}")
+    public ResponseResult<Object> deleteById(@PathVariable Long... id){
+        return categoryService.deleteById(new ArrayList<>(List.of(id)));
     }
 
 }

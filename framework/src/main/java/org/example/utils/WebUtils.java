@@ -1,11 +1,11 @@
 package org.example.utils;
 
-import jakarta.servlet.ServletContext;
+import com.alibaba.fastjson2.JSON;
 import jakarta.servlet.http.HttpServletResponse;
+import org.example.domain.ResponseResult;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
@@ -34,6 +34,9 @@ public class WebUtils {
         }
     }
 
+    public static void renderString(HttpServletResponse response, ResponseResult<Object> result) {
+        renderString(response, JSON.toJSONString(result));
+    }
 
 
     /**
@@ -41,15 +44,14 @@ public class WebUtils {
      *
      * @param filename 要下载的文件名称，用于设置下载的文件名
      * @param response HttpServletResponse 对象，用于设置响应头信息
-     * @throws UnsupportedEncodingException 如果编码不支持，抛出该异常
      */
-    public static void setDownLoadHeader(String filename, HttpServletResponse response) throws UnsupportedEncodingException {
+    public static void setDownLoadHeader(String filename, HttpServletResponse response) {
         // 设置响应内容类型为 Excel 文件
         response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
         // 设置响应字符编码为 UTF-8，确保处理中文等字符时正确显示
         response.setCharacterEncoding("utf-8");
         // 使用 URLEncoder 对文件名进行编码，避免中文乱码，并替换空格为 %20
-        String encodedFileName = URLEncoder.encode(filename, "UTF-8").replaceAll("\\+", "%20");
+        String encodedFileName = URLEncoder.encode(filename, StandardCharsets.UTF_8).replaceAll("\\+", "%20");
         // 设置响应头的 Content-Disposition 属性，指示浏览器以下载方式处理响应
         response.setHeader("Content-disposition", "attachment;filename*=utf-8''" + encodedFileName + ".xlsx");
     }

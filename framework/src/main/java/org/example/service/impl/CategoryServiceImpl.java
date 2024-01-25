@@ -2,19 +2,19 @@ package org.example.service.impl;
 
 
 import com.alibaba.excel.EasyExcel;
-import com.alibaba.excel.util.MapUtils;
-import com.alibaba.fastjson2.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletResponse;
 import org.example.constant.SystemConstants;
 import org.example.domain.ResponseResult;
+import org.example.domain.dto.AddCategoryDto;
+import org.example.domain.dto.PageSelectDto;
+import org.example.domain.dto.UpdateCategoryDto;
 import org.example.domain.entity.Article;
 import org.example.domain.entity.Category;
-import org.example.domain.vo.CategoryVo;
-import org.example.domain.vo.ContentCategoryVo;
-import org.example.domain.vo.ExcelCategoryVo;
+import org.example.domain.vo.*;
 import org.example.enums.AppHttpCodeEnum;
 import org.example.mapper.CategoryMapper;
 import org.example.service.ArticleService;
@@ -22,10 +22,10 @@ import org.example.service.CategoryService;
 import org.example.utils.BeanCopyUtils;
 import org.example.utils.WebUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
-import java.io.UnsupportedEncodingException;
+import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -85,14 +85,70 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
             // 设置响应头
             WebUtils.setDownLoadHeader(fileName,response);
             // 输出excel
-            EasyExcel.write(response.getOutputStream(), ExcelCategoryVo.class).autoCloseStream(Boolean.FALSE).sheet("分类")
+            EasyExcel.write(response.getOutputStream(), ExcelCategoryVo.class)
+                    .autoCloseStream(Boolean.FALSE)
+                    .sheet("分类")
                     .doWrite(excelCategoryVos);
         } catch (Exception e) {
             // 重置response
             response.reset();
             ResponseResult<Object> result = ResponseResult.errorResult(AppHttpCodeEnum.SYSTEM_ERROR);
-            //WebUtils.renderString(response, JSON.toJSONString(result));
+            // 这里可能有问题
+            WebUtils.renderString(response, result);
         }
+    }
+
+    @Override
+    public ResponseResult<Object> pageList(PageSelectDto pageSelectDto) {
+        // 需要分页查询分类列表。
+        Page<Category> page = Page.of(pageSelectDto.getPageNum(), pageSelectDto.getPageSize());
+        // 能根据分类名称进行模糊查询。
+        LambdaQueryWrapper<Category> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper
+                .like(StringUtils.hasText(pageSelectDto.getName()), Category::getName, pageSelectDto.getName())
+                // 能根据状态进行查询。
+                .eq(StringUtils.hasText(pageSelectDto.getStatus()), Category::getStatus, pageSelectDto.getStatus());
+        Page<Category> result = this.page(page, queryWrapper);
+        // 封装返回
+        return new ResponseResult<>().ok(new PageVo(result.getRecords(), result.getTotal()));
+    }
+
+    @Override
+    public ResponseResult<Object> addCategory(AddCategoryDto addCategoryDto) {
+        // Bean转换
+        Category category = BeanCopyUtils.copyBean(addCategoryDto, Category.class);
+        // 保存
+        this.save(category);
+        // 返回
+        return new ResponseResult<>();
+    }
+
+    @Override
+    public ResponseResult<Object> getCategoryById(Serializable id) {
+        // 根据id查询
+        Category category = this.getById(id);
+        // 转换成VO
+        AddCategoryVo addCategoryVo = BeanCopyUtils.copyBean(category, AddCategoryVo.class);
+        // 返回
+        return new ResponseResult<>().ok(addCategoryVo);
+    }
+
+    @Override
+    public ResponseResult<Object> updateCategory(UpdateCategoryDto categoryDto) {
+        // Bean转换
+        Category category = BeanCopyUtils.copyBean(categoryDto, Category.class);
+        // 保存
+        this.updateById(category);
+        // 返回
+        return new ResponseResult<>();
+    }
+
+    @Override
+    public ResponseResult<Object> deleteById(List<Long> ids) {
+        // 根据Id进行逻辑删除
+        ids.forEach(this::removeById);
+        // 返回
+        return new ResponseResult<>();
     }
 
 }
