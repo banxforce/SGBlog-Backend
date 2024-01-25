@@ -2,7 +2,13 @@ package org.example.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.example.domain.ResponseResult;
+import org.example.domain.dto.AddLinkDto;
+import org.example.domain.dto.PageSelectDto;
+import org.example.domain.dto.UpdateLinkDto;
 import org.example.domain.entity.Link;
+
+import java.io.Serializable;
+import java.util.List;
 
 
 /**
@@ -14,5 +20,15 @@ import org.example.domain.entity.Link;
 public interface LinkService extends IService<Link> {
 
     ResponseResult<Object> getAllLink();
+
+    ResponseResult<Object> pageList(PageSelectDto pageSelectDto);
+
+    ResponseResult<Object> addLink(AddLinkDto addLinkDto);
+
+    ResponseResult<Object> getLinkById(Serializable id);
+
+    ResponseResult<Object> updateLink(UpdateLinkDto updateLinkDto);
+
+    ResponseResult<Object> deleteByIds(List<? extends Serializable> ids);
 }
 

@@ -109,8 +109,10 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
                 // 能根据状态进行查询。
                 .eq(StringUtils.hasText(pageSelectDto.getStatus()), Category::getStatus, pageSelectDto.getStatus());
         Page<Category> result = this.page(page, queryWrapper);
+        // 转换成vo
+        List<AddCategoryVo> voList = BeanCopyUtils.copyBeanList(result.getRecords(), AddCategoryVo.class);
         // 封装返回
-        return new ResponseResult<>().ok(new PageVo(result.getRecords(), result.getTotal()));
+        return new ResponseResult<>().ok(new PageVo(voList, result.getTotal()));
     }
 
     @Override

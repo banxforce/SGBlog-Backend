@@ -30,6 +30,14 @@ public class SystemConstants {
      */
     public static final String LINK_STATUS_PASS = "0";
     /**
+     * 友链审核未通过
+     */
+    public static final String LINK_STATUS_NOT_PASS = "1";
+    /**
+     * 友链未审核
+     */
+    public static final String LINK_STATUS_NOT_PROCESS = "2";
+    /**
      * 为根评论
      */
     public static final Long COMMENT_ROOT_ID = -1L;

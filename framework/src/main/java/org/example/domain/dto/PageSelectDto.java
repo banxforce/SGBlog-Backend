@@ -15,8 +15,8 @@ public class PageSelectDto {
 
     private Long pageSize;  // 每页条数
 
-    private String name; // 分类名
+    private String name; //
 
-    private String status; // 状态0:正常,1禁用
+    private String status; // 状态
 
 }
